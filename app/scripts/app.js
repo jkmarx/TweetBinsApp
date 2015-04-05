@@ -1,35 +1,49 @@
+(function(){
 'use strict';
 
-/**
- * @ngdoc overview
- * @name tweetBinsAppApp
- * @description
- * # tweetBinsAppApp
- *
- * Main module of the application.
- */
 angular
-  .module('tweetBinsAppApp', [
+  .module('TweetBinsApp', [
     'ngAnimate',
     'ngResource',
     'ngRoute',
-    'ngSanitize'
-  ])
-  .config(function ($routeProvider) {
+    'ngSanitize',
+    'ngCookies',
+    'ngTouch'
+  ]);
+
+  angular
+    .module('TweetBinsApp')
+    .config(TweetBinsAppConfig)
+    .controller('NavbarCtrl', navbarCtrl);
+
+  function TweetBinsAppConfig($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
-      .when('/', {
+      .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl'
       })
-      .when('/', {
+      .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
-  });
+    }
+
+    navbarCtrl.$inject = ['$location'];
+
+  function navbarCtrl($location){
+    var vm = this;
+
+    vm.isActive = function(viewLocation){
+      return viewLocation === $location.path();
+    };
+  }
+
+
+})();

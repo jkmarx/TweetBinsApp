@@ -7,8 +7,8 @@
  * # MainCtrl
  * Controller of the tweetBinsAppApp
  */
-angular.module('tweetBinsAppApp')
-  .controller('MainCtrl', function ($scope) {
+angular.module('TweetBinsApp')
+  .controller('DashboardCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
