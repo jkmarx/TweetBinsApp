@@ -20,22 +20,27 @@
         console.log('in getCallbackToken');
         return $http.get('http://localhost:3000/callbacks').then(function(response) {
           console.log(response.data);
-          redirectTwitterLogin(response.data)
+          redirectTwitterLogin(response.data);
         }, requestFailure);
       }
 
       function requestFailure(response){
-        console.log("in requestFailure");
+        console.log('in requestFailure');
         console.log(response);
       }
 
       function redirectTwitterLogin(token){
-        console.log(token.token)
+        console.log(token.token);
         $window.location.href = 'https://api.twitter.com/oauth/authorize?' + token.token;
+
+        return $http.get('http://localhost:3000/callbacks').then(function(response) {
+          console.log(response.data);
+          redirectTwitterLogin(response.data);
+        }, requestFailure);
         // return $http.get('https://api.twitter.com/oauth/authorize?' + token.token).then(function(response) {
         //   console.log(response.data)
         // }, requestFailure);
-      };
+      }
     }
 })();
 

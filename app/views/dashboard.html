@@ -1,1 +1,9 @@
 in the dashboard
+
+
+<h2>Show some tweets.</h2>
+<ul ng-controller="DashboardCtrl as dashboard">
+    <li>Tweet: {{dashboard.tweets.body}}</li>
+  <li ng-repeat="tweet in dashboard.tweets"><em>{{ tweet.body }}</li>
+</ul>
+

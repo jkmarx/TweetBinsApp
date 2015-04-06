@@ -7,7 +7,8 @@
  * # AboutCtrl
  * Controller of the tweetBinsAppApp
  */
-angular.module('TweetBinsApp')
+angular
+  .module('TweetBinsApp')
   .controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
