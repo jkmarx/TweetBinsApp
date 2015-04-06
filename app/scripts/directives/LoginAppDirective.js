@@ -4,7 +4,7 @@ angular.module('TweetBinsApp').directive('loginAppForm',[function(){
     restrict: 'E',
     templateUrl: 'views/login-app-form.html',
     controller: 'LoginAppCtrl',
-    controllerAs: 'LoginAppCtrl',
+    controllerAs: 'loginAppCtrl',
     bindToController: true,
     scope: {
       credentials: '='

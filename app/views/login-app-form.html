@@ -1,13 +1,13 @@
 In the login-app-form.
 
-<form class="login-app-form" name="loginAppForm" ng-submit="loginAppController.login(loginAppController.credentials)" novalidate>
+<form class="login-app-form" name="loginAppForm" ng-submit="loginAppCtrl.login(loginAppCtrl.credentials)" novalidate>
   <div class="form-group">
-    <input id="email" type="text" name="email" ng-model="loginAppController.credentials.email" required>
+    <input id="email" type="text" name="email" ng-model="loginAppCtrl.credentials.email" required>
     <label id="email-label" for="email">Email</label>
   </div>
 
   <div class="form-group">
-    <input id="password" type="password" name="password" ng-model="loginAppController.credentials.password" required>
+    <input id="password" type="password" name="password" ng-model="loginAppCtrl.credentials.password" required>
     <label id="password-label" for="password">Password</label>
   </div>
   <div class="form-group">
