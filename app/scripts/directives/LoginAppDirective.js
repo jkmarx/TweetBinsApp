@@ -10,4 +10,4 @@ angular.module('TweetBinsApp').directive('loginAppForm',[function(){
       credentials: '='
     }
   };
-}])
+}]);
