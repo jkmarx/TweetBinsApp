@@ -15,15 +15,14 @@ angular.module('TweetBinsApp').factory('TweetsFactory', ['$http', '$window', 'Se
     };
     return $http.get(ServerUrl + '/tweets', config).then(function(response) {
       console.log(response.data);
-      debugger;
-      angular.copy(response,tweets);
+      angular.copy(response.data,tweets);
     }, requestFailure);
   };
 
   function requestFailure(response){
     console.log('in requestFailure');
     console.log(response);
-  };
+  }
 
   return {
     tweets: tweets,

@@ -2,7 +2,7 @@ in the dashboard
 
 
 <h2>Show some tweets.</h2>
-<ul ng-controller="TweetsCtrl as tweets">
-  <li ng-repeat="tweet in tweets"><em>{{ tweet.body }}</li>
+<ul ng-controller="TweetsCtrl as tweetsCtrl">
+  <li ng-repeat="tweet in tweetsCtrl.tweets"><em>Name: {{ tweet.userScreenname }}<br>{{ tweet.text }}<br> Created: {{ tweet.created_at }}</li>
 </ul>
 
