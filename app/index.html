@@ -25,8 +25,10 @@
     <ng-include src="'views/navbar.html'"></ng-include>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
+    <div class="row">
     <div ng-view=""></div>
+    </div>
     </div>
 
     <div class="footer">
@@ -81,6 +83,7 @@
         <!-- Directives -->
         <script src="scripts/directives/LoginAppDirective.js"></script>
         <script src="scripts/directives/CategoriesDirective.js"></script>
+        <script src="scripts/directives/TweetsDirective.js"></script>
 
         <!-- Controllers -->
         <script src="scripts/controllers/NavbarCtrl.js"></script>
@@ -89,6 +92,7 @@
         <script src="scripts/controllers/LoginAppCtrl.js"></script>
         <script src="scripts/controllers/DashboardCtrl.js"></script>
         <script src="scripts/controllers/AboutCtrl.js"></script>
+        <script src="scripts/controllers/CategoryCtrl.js"></script>
         <script src="scripts/controllers/CategoriesCtrl.js"></script>
 
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$window', 'ServerUrl', function($http, $window, ServerUrl){
+angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$routeParams', '$window', 'ServerUrl', function($http,$routeParams, $window, ServerUrl){
 
   var categories = [];
   var category = {};
@@ -10,6 +10,21 @@ angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$window',
   var setCategory = function(newCategory) {
     angular.copy(newCategory, category);
   };
+
+  function getCategory() {
+    var data = JSON.parse($window.localStorage.getItem('tb-user'));
+    var config = {
+      headers: {
+        'AUTHORIZATION': 'Token token=' + data.token
+      }
+    };
+    var categoryId = $routeParams.categoryId;
+     return $http.get('http://localhost:3000/categories/' + categoryId).then(function(response) {
+        //console.log(response.data);
+        angular.copy(response.data, category);
+      }, requestFailure);
+
+   }
 
   var getCategories = function() {
     var data = JSON.parse($window.localStorage.getItem('tb-user'));
@@ -78,6 +93,7 @@ angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$window',
     getCategories: getCategories,
     upsertCategory: upsertCategory,
     deleteCategory: deleteCategory,
+    getCategory: getCategory,
     setCategory: setCategory
   };
 

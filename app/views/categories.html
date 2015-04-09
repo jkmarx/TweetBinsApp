@@ -1,20 +1,20 @@
 <ul>
-  <li ng-repeat="category in categoriesCtrl.categories">{{ category.name }} <a ng-click="categoriesCtrl.editCategory(category)">update</a> <a ng-click="categoriesCtrl.deleteCategory(category)">delete</a></li>
+  <li ng-repeat="category in categoriesCtrl.categories">
+    <a href="#/categories/{{category.id}}">{{ category.name }}</a> <a ng-click="categoriesCtrl.editCategory(category)">update</a> <a ng-click="categoriesCtrl.deleteCategory(category)">delete</a></li>
 </ul>
 
   <form role="form" name="upsertCategory" ng-submit="categoriesCtrl.upsertCategory(categoriesCtrl.category)" novalidate ng-controller="CategoriesCtrl as categoriesCtrl">
 
-    <h2 ng-if="!categoriesCtrl.category.id">Create Category</h2>
-    <h2 ng-if="categoriesCtrl.category.id">Update Category</h2>
+    <h4 ng-if="!categoriesCtrl.category.id">Create Category</h4>
+    <h4 ng-if="categoriesCtrl.category.id">Update Category</h4>
 
     <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" ng-model="categoriesCtrl.category.name">
+        <input type="text" class="form-control" ng-model="categoriesCtrl.category.name" placeholder="Enter New Category" style="width: 200px">
     </div>
 
-    <button type="submit" class="btn btn-primary" ng-disabled="upsertCategory.$invalid">Submit</button>
+    <button type="submit" class="btn btn-primary btn-xs" ng-disabled="upsertCategory.$invalid">Submit</button>
 
-    <button type="reset" class="btn btn-default" ng-click="categoriesCtrl.cancel()">Cancel</button>
+    <button type="reset" class="btn btn-default btn-xs" ng-click="categoriesCtrl.cancel()">Cancel</button>
       </form>
     </div>
 </div>
