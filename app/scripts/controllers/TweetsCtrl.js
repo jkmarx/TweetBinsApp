@@ -5,9 +5,7 @@ TweetsCtrl.$inject = ['TweetsFactory'];
 
 function TweetsCtrl(TweetsFactory){
   var vm = this;
-
   TweetsFactory.getTweets().then(function(response){
   vm.tweets = TweetsFactory.tweets;
-  debugger;
   });
 }

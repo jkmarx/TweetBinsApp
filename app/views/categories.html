@@ -1,0 +1,20 @@
+<ul>
+  <li ng-repeat="category in categoriesCtrl.categories">{{ category.name }} <a ng-click="categoriesCtrl.editCategory(category)">update</a> <a ng-click="categoriesCtrl.deleteCategory(category)">delete</a></li>
+</ul>
+
+  <form role="form" name="upsertCategory" ng-submit="categoriesCtrl.upsertCategory(categoriesCtrl.category)" novalidate ng-controller="CategoriesCtrl as categoriesCtrl">
+
+    <h2 ng-if="!categoriesCtrl.category.id">Create Category</h2>
+    <h2 ng-if="categoriesCtrl.category.id">Update Category</h2>
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" ng-model="categoriesCtrl.category.name">
+    </div>
+
+    <button type="submit" class="btn btn-primary" ng-disabled="upsertCategory.$invalid">Submit</button>
+
+    <button type="reset" class="btn btn-default" ng-click="categoriesCtrl.cancel()">Cancel</button>
+      </form>
+    </div>
+</div>

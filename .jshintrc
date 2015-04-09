@@ -17,7 +17,18 @@
   "strict": true,
   "trailing": true,
   "smarttabs": true,
+  "unused": false,
+  "sub": true,
+
   "globals": {
-    "angular": false
+    "angular": false,
+    "AuthFactory": false,
+    "diCategories": false,
+    "NavbarCtrl": false,
+    "LoginCtrl": false,
+    "LoginAppCtrl": false,
+    "CategoriesCtrl": false,
+    "TweetsCtrl": false,
+    "CategoryFactory": false
   }
 }

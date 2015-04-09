@@ -3,6 +3,6 @@ in the dashboard
 
 <h2>Show some tweets.</h2>
 <ul ng-controller="TweetsCtrl as tweetsCtrl">
-  <li ng-repeat="tweet in tweetsCtrl.tweets"><em>Name: {{ tweet.userScreenname }}<br>{{ tweet.text }}<br> Created: {{ tweet.created_at }}</li>
+  <li ng-repeat="tweet in tweetsCtrl.tweets"><strong>Name:</strong> {{ tweet.userScreenname }}<br>{{ tweet.text }}<br> <em>Created: {{ tweet.created_at }}</em></li>
 </ul>
 
