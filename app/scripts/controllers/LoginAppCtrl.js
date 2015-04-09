@@ -4,9 +4,9 @@ angular
   .module('TweetBinsApp')
   .controller('LoginAppCtrl', LoginAppCtrl);
 
-LoginAppCtrl.$inject = ['AuthFactory','$location'];
+LoginAppCtrl.$inject = ['AuthFactory','$location','$scope'];
 
-function LoginAppCtrl(AuthFactory,$location){
+function LoginAppCtrl(AuthFactory, $location, $scope){
   console.log('in loginAppctrl');
   var vm = this;
 

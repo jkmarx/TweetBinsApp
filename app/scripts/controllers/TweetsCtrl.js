@@ -1,11 +1,13 @@
 'use strict';
 angular.module('TweetBinsApp').controller('TweetsCtrl', TweetsCtrl);
 
-TweetsCtrl.$inject = ['TweetsFactory'];
+TweetsCtrl.$inject = ['$scope', 'TweetsFactory'];
 
-function TweetsCtrl(TweetsFactory){
+function TweetsCtrl($scope, TweetsFactory){
   var vm = this;
+  console.log("in tweetsCtrl now!");
   TweetsFactory.getTweets().then(function(response){
-  vm.tweets = TweetsFactory.tweets;
+    vm.tweets = TweetsFactory.tweets;
   });
-}
+};
+

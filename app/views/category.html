@@ -2,5 +2,13 @@
 <ul ng-controller="CategoryCtrl as categoryCtrl">
     <li>Name: {{categoryCtrl.category.name}}</li>
     <li>Category: {{categoryCtrl.category.friends}}</li>
-  <!-- <a ng-click="gaTaskListCtrl.editTask(task)">update</a> <a ng-click="gaTaskListCtrl.deleteTask(task)">delete</a></li> -->
+
+    <!-- <div class='col-md-9'>
+    <di-tweets tweets="tweetsCtrl.tweets" category="categoryCtrl.category"></di-tweets></div>
+    </div> -->
+
+  <h2>Show some tweets.</h2>
+  <ul ng-controller="TweetsCtrl as tweetsCtrl">
+    <li ng-repeat="tweet in tweetsCtrl.tweets | tweetsFilter:this" ><strong>Name:</strong> {{ tweet.userScreenname }}<br>{{ tweet.text }}<br> <em>Created: {{ tweet.created_at }}</em></li>
+  </ul>
 </ul>

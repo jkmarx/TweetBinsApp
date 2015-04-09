@@ -2,9 +2,9 @@
 
 angular.module('TweetBinsApp').controller('NavbarCtrl', NavbarCtrl);
 
-NavbarCtrl.$inject = ['AuthFactory','$location'];
+NavbarCtrl.$inject = ['AuthFactory','$location','$scope'];
 
-function NavbarCtrl(AuthFactory, $location){
+function NavbarCtrl(AuthFactory, $location, $scope){
   var vm = this;
 
   vm.isLoggedin = function(){

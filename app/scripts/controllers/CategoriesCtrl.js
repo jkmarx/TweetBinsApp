@@ -1,9 +1,9 @@
 'use strict';
 angular.module('TweetBinsApp').controller('CategoriesCtrl', CategoriesCtrl);
 
-CategoriesCtrl.$inject = ['CategoriesFactory'];
+CategoriesCtrl.$inject = ['$scope','CategoriesFactory'];
 
-function CategoriesCtrl(CategoriesFactory){
+function CategoriesCtrl($scope, CategoriesFactory){
   var vm = this;
   vm.category = CategoriesFactory.category;
   CategoriesFactory.getCategories().then(function(response){

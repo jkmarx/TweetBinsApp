@@ -9,7 +9,8 @@ function diTweets() {
     restrict: 'E',
     templateUrl: 'views/tweets.html',
     scope: {
-        jobs: '='
+        tweets: '=',
+        category: '='
     },
     controller: 'TweetsCtrl',
     controllerAs: 'tweetsCtrl',

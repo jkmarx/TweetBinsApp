@@ -7,7 +7,6 @@ angular.module('TweetBinsApp').factory('TweetsFactory', ['$http', '$window', 'Se
 
   var getTweets = function() {
     var data = JSON.parse($window.localStorage.getItem('tb-user'));
-    console.log('in tweets ctrl');
     var config = {
       headers: {
         'AUTHORIZATION': 'Token token=' + data.token
