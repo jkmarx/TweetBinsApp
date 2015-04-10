@@ -11,13 +11,7 @@
             </div> -->
 
 
-            <form role="form" id="friend-form" name="upsertFriendForm" ng-submit="tweetsCtrl.upsertFriend($scope.tweetsCtrl.friend)">
-              <select class="select-category" ng-model="$scope.tweetsCtrl.friend" required>
-              <option value=''>Select Bin</option>
-              <option ng-repeat="category in tweetsCtrl.categories" value="{{category.id}}, {{tweet.userId}}">{{category.name}}</option>
-              </select>
-              <button type="submit" class="btn btn-default btn-xs">Submit</button>
-            </form>
+
         </div>
 
             <!-- <div ng-controller="FriendCtrl as friendCtrl">
@@ -42,6 +36,13 @@
         </div>
         <div class='panel-footer'>
             <em>Created: {{ tweet.created_at }}</em>
+            <form role="form" id="friend-form" name="upsertFriendForm" ng-submit="tweetsCtrl.upsertFriend($scope.tweetsCtrl.friend)">
+              <select class="select-category" ng-model="$scope.tweetsCtrl.friend" required>
+              <option value=''>Select Bin</option>
+              <option ng-repeat="category in tweetsCtrl.categories" value="{{category.id}}, {{tweet.userId}}">{{category.name}}</option>
+              </select>
+              <button type="submit" class="btn btn-default btn-xs">Submit</button>
+            </form>
         </div>
       </div>
     </div>

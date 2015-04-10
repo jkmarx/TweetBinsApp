@@ -1,9 +1,11 @@
 html, body {
-  padding-top: 20px;
+  padding-top: 25px;
   height: 100%;
   width: 100%;
   font-size: 16px;
   background-color: #FFFFFF;
+  /*background: url("110_2118.JPG");
+  background-repeat: no-repeat;*/
 }
 
 div.container-fluid{
@@ -31,23 +33,33 @@ img{
 .header{
   margin-bottom: 30px;
 }
+
 .navbar {
-  height:60px;
-  background-color: #C0DEED;
+  height:80px;
+  background-image: url("http://imgur.com/NFSaw6k.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  /*background-color: #C0DEED;*/
+  background-color: transparent;
   color: white;
   font-size: 1.5em;
-  border-bottom: 5px #C0DEED solid;
 }
 
+#nav-menu{
+  background-color: transparent;
+}
 #nav-menu a{
  /* font-size: 1.5em;*/
-  margin: 5px 15px 0 0;
+  margin: 10px 15px 0 0;
+  background-color: transparent;
+  background: rgba(0,0,0,0.3);
   color: white;
+  border-radius: 10px 5%;
 }
 
 .glyphicon {
-  color: #000000;
-  font-size: 1.0em;
+  color: #FFFFFF;
+  font-size: .8em;
   padding-left: 10px;
 }
 
@@ -80,8 +92,10 @@ img{
    text-align: left;
  }
 
-  h3{
+  a h3{
     margin-top: 3px;
+    color: white;
+    font-size: 1.7em;
   }
   h4{
     margin-bottom: 2px;
@@ -89,19 +103,19 @@ img{
   }
 
   .panel{
-    width: 800px;
+    width: 600px;
     height: auto;
     padding-bottom: 0px;
     margin: 20px 0 10px 0;
-    border: 2px solid #000000;
+    border: 2px solid rgba(0,0,0,0.4);
     text-align: center;
   }
 
   .panel > .panel-heading{
-    background-color: #C0DEED;
-    //border: 3px solid #E7512D;
+    /*background: rgba(0,0,0,0.5);*/
+    background: rgba(0,0,0,0.4);
     color: white;
-    font-size:1.5em;
+    font-size:1.2em;
     text-align: left;
   }
 
@@ -109,9 +123,9 @@ img{
     display: inline;
   }
 
-  .panel-heading form#friend-form{
+  .panel-footer form#friend-form{
     display: inline;
-    padding-left: 50%;
+    padding-left: 10%;
     width: 100%;
   }
   .panel-default > .panel-body{
@@ -126,8 +140,21 @@ img{
   }
 
   #categoryLinks{
-    padding: 15px 0 0 10px;
+    width:100%;
+    padding: 10px 20px 10px 20px;
     font-size: 1.5em;
+  }
+
+  #sideOptions {
+  position: fixed;
+  border-radius: 10px 5%;
+  top: 100px;
+  padding: 5px 10px 21px 10px;
+  background: rgba(0,0,0,0.4);
+  }
+
+  #categoryLinks a{
+    color: white;
   }
 
 /* Responsive: Portrait tablets and down */
