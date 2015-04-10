@@ -57,7 +57,7 @@ angular.module('TweetBinsApp').factory('TweetsFactory', ['$http', '$window', 'Se
     } else {
       return $http.post(ServerUrl + '/friends', params)
       .then(function(response) {
-        friend.push(response.data);
+        angular.copy(response.data, friend);
       }, requestFailure);
     }
   };

@@ -1,16 +1,29 @@
 
 <div class='col-md-3'> <di-categories categories="categoriesCtrl.categories"></di-categories></div>
 
-<div ng-controller="CategoryCtrl as categoryCtrl">
-  <h2>Name: {{categoryCtrl.category.name}}</h2>
-<!--     <li>Category: {{categoryCtrl.category.friends}}</li> -->
+<div class='col-md-9'>
+  <div ng-controller="CategoryCtrl as categoryCtrl">
+    <h2>{{categoryCtrl.category.name}}</h2>
+  <!--     <li>Category: {{categoryCtrl.category.friends}}</li> -->
 
-    <!-- <div class='col-md-9'>
-    <di-tweets tweets="tweetsCtrl.tweets" category="categoryCtrl.category"></di-tweets></div>
-    </div> -->
-  <ul ng-controller="TweetsCtrl as tweetsCtrl">
-    <li ng-repeat="tweet in tweetsCtrl.tweets | tweetsFilter:this" ><strong>Name:</strong> {{ tweet.userScreenname }}<br>{{ tweet.text }}<br> <em>Created: {{ tweet.created_at }}</em></li>
-  </ul>
+      <!-- <div class='col-md-9'>
+      <di-tweets tweets="tweetsCtrl.tweets" category="categoryCtrl.category"></di-tweets></div>
+      </div> -->
+    <div ng-controller="TweetsCtrl as tweetsCtrl">
+      <div ng-repeat="tweet in tweetsCtrl.tweets | tweetsFilter:this" >
+      <div class='panel panel-default'>
+        <div class='panel-heading'>
+          {{ tweet.userScreenname }}
+        </div>
+        <div class='panel-body'>
+          {{ tweet.text }}
+        </div>
+        <div class='panel-footer'>
+          <em>Created: {{ tweet.created_at }}</em></li>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
