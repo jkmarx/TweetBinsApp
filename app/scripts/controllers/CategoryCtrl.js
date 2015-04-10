@@ -9,7 +9,6 @@ CategoryCtrl.$inject = ['$scope','CategoriesFactory'];
 
 function CategoryCtrl($scope, CategoriesFactory){
   var vm = this;
-  debugger;
   CategoriesFactory.getCategory().then(function(response){
     vm.category = CategoriesFactory.category;
     $scope.category = vm.category;
@@ -27,9 +26,9 @@ function tweetsFilter(){
       categoryFriendsId.push(categoryFriends[j].twitterId);
     }
     for(var i = 0; i < param.length; i++){
-      var friendId = param[i].userId;
+      var friendId = param[i].userId.toString();
       var foundIndex = categoryFriendsId.indexOf(friendId);
-      if (foundIndex > -1 || friendId === 816653){
+      if (foundIndex > -1){
         filteredTweets.push(param[i]);
       }
     }

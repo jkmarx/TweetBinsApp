@@ -9,21 +9,6 @@ angular.module('TweetBinsApp').factory('FriendFactory', ['$http', '$routeParams'
     angular.copy(newFriend, friend);
   };
 
-  function getFriend() {
-    var data = JSON.parse($window.localStorage.getItem('tb-user'));
-    var config = {
-      headers: {
-        'AUTHORIZATION': 'Token token=' + data.token
-      }
-    };
-    var friendId = $routeParams.friendId;
-     return $http.get('http://localhost:3000/firends/' + friendId).then(function(response) {
-        //console.log(response.data);
-        angular.copy(response.data, friend);
-      }, requestFailure);
-
-   }
-
   var getFriend = function() {
     var data = JSON.parse($window.localStorage.getItem('tb-user'));
     var config = {
@@ -53,14 +38,14 @@ angular.module('TweetBinsApp').factory('FriendFactory', ['$http', '$routeParams'
     } else {
       return $http.post(ServerUrl + '/friends', params)
       .then(function(response) {
-        friends.push(response.data);
+        friend.push(response.data);
       }, requestFailure);
     }
   };
 
   function findFriendIndexById(id) {
-    for (var i = 0; i < friends.length; i++) {
-      if (friends[i].id === id) {
+    for (var i = 0; i < friend.length; i++) {
+      if (friend[i].id === id) {
           return i;
       }
     }

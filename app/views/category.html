@@ -8,42 +8,10 @@
     <!-- <div class='col-md-9'>
     <di-tweets tweets="tweetsCtrl.tweets" category="categoryCtrl.category"></di-tweets></div>
     </div> -->
-  <div class='col-md-10 col-md-offset-2'>
-    <div class='panel panel-default'>
   <ul ng-controller="TweetsCtrl as tweetsCtrl">
-    <li ng-repeat="tweet in tweetsCtrl.tweets | tweetsFilter:this" >
-
-     <div class='panel-heading' id='tweetsMain'> {{ tweet.userScreenname }}<br>{{ tweet.text }}<br> <em>Created: {{ tweet.created_at }}</em></li>
+    <li ng-repeat="tweet in tweetsCtrl.tweets | tweetsFilter:this" ><strong>Name:</strong> {{ tweet.userScreenname }}<br>{{ tweet.text }}<br> <em>Created: {{ tweet.created_at }}</em></li>
   </ul>
 </div>
 
 
 
-
-
-    <ul ng-controller="TweetsCtrl as tweetsCtrl">
-
-        <li ng-repeat="tweet in tweetsCtrl.tweets" >
-          <strong>Name:</strong> {{ tweet.userScreenname }
-          <form role="form" name="upsertCategoryForm" ng-submit="categoriesCtrl.upsertCategory(categoriesCtrl.category)">
-          <div class="form-group" ng-controller="CategoriesCtrl as categoriesCtrl">
-            <label for="select-category">Category</label>
-            <select class="select-category" ng-model="categoriesCtrl.category.friends" required>
-            <option ng-repeat="category in categoriesCtrl.categories" value={{tweet.userId}}>{{category.name}}</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </li>
-      </div>
-      <div class='panel-body'>
-        <li>{{ tweet.text }}</li>
-      </div>
-      <div class='panel-footer'>
-        <li>
-          <em>Created: {{ tweet.created_at }}</em>
-        </li>
-      </div>
-    </ul>
-  </div>
-</div>

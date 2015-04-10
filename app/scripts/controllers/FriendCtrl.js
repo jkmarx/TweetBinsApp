@@ -1,12 +1,12 @@
 'use strict';
 angular.module('TweetBinsApp').controller('FriendCtrl', FriendCtrl);
 
-FriendCtrl.$inject = ['$scope','FriendFactory'];
+FriendCtrl.$inject = ['FriendFactory','CategoriesFactory'];
 
-function FriendCtrl($scope, FriendFactory){
+function FriendCtrl( FriendFactory,CategoriesFactory){
   var vm = this;
   vm.friend = FriendFactory.friend;
-  $scope.friend = vm.friend
+  vm.categories = CategoriesFactory.categories;
 
   vm.upsertFriend = function(friend) {
     FriendFactory.upsertFriend(friend)
@@ -35,6 +35,7 @@ function FriendCtrl($scope, FriendFactory){
   }
 
   function resetForm() {
+    FriendFactory.setFriend({twitterId: '', category_id: ''});
     vm.serverErrors = false;
   }
   resetForm();

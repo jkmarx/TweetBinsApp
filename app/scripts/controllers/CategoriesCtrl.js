@@ -6,7 +6,7 @@ CategoriesCtrl.$inject = ['$scope','CategoriesFactory'];
 function CategoriesCtrl($scope, CategoriesFactory){
   var vm = this;
   vm.category = CategoriesFactory.category;
-  $scope.category = vm.category
+  $scope.category = vm.category;
 
   vm.categories = CategoriesFactory.categories;
   $scope.categories = vm.categories;
@@ -15,7 +15,7 @@ function CategoriesCtrl($scope, CategoriesFactory){
     CategoriesFactory.getCategories().then(function(response){
       vm.categories = CategoriesFactory.categories;
     });
-  };
+  }
 
   vm.upsertCategory = function(category) {
     CategoriesFactory.upsertCategory(category)

@@ -4,20 +4,40 @@
       <div ng-repeat="tweet in tweetsCtrl.tweets" >
         <div class='panel-heading' id='tweetsMain'>
             <h3> {{ tweet.userScreenname }}</h3>
-            <div ng-controller="FriendCtrl as friendCtrl">
-            <form role="form" name="upsertFriendForm" ng-submit="friendCtrl.upsertFriend(friendCtrl.friend)">
+
+            <form role="form" name="upsertFriendForm" ng-submit="tweetsCtrl.upsertFriend(tweetsCtrl.friend)">
+
               <div class="form-group">
-                <select class="select-category" ng-controller="CategoriesCtrl as categoriesCtrl" ng-model="friendCtrl.friend.category_id" required>
+                <select class="select-category" ng-model="$scope.tweetsCtrl.friend.category_id" required>
                 <option value=''>Select Category</option>
-                <option ng-repeat="category in categoriesCtrl.categories" value={{category.id}}>{{category.name}}</option>
+                <option ng-repeat="category in tweetsCtrl.categories" value={{category.id}}>{{category.name}}</option>
                 </select>
+
+              </div>
+              <div class="form-group">
+              <input type="hidden" required ng-model="tweetsCtrl.friend.twitterId" ng-init="tweetsCtrl.friend.twitterId=tweet.userId" />
+              </div>
+              <button type="submit" class="btn btn-primary btn-xs">Submit</button>
+            </form>
+        </div>
+
+            <!-- <div ng-controller="FriendCtrl as friendCtrl">
+            <form role="form" name="upsertFriendForm" ng-submit="friendCtrl.upsertFriend(friendCtrl.friend)">
+
+              <div class="form-group">
+                <select class="select-category" ng-model="friendCtrl.friend.category_id" required>
+                <option value=''>Select Category</option>
+                <option ng-repeat="category in friendCtrl.categories" value={{category.id}}>{{category.name}}</option>
+                </select>
+
               </div>
               <div class="form-group">
               <input type="hidden" required ng-model="friendCtrl.friend.twitterId" ng-init="friendCtrl.friend.twitterId=tweet.userId" />
               </div>
               <button type="submit" class="btn btn-primary btn-xs">Submit</button>
             </form>
-        </div>
+        </div> -->
+
         <div class='panel-body'>
           {{ tweet.text }}
         </div>

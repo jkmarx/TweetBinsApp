@@ -29,6 +29,10 @@
     "LoginAppCtrl": false,
     "CategoriesCtrl": false,
     "TweetsCtrl": false,
-    "CategoryFactory": false
+    "CategoryFactory": false,
+    "CategoryCtrl":false,
+    "tweetsFilter":false,
+    "FriendCtrl":false,
+    "diTweets":false
   }
 }
