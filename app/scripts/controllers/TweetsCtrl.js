@@ -13,7 +13,11 @@ function TweetsCtrl( $scope, TweetsFactory, CategoriesFactory){
   });
 
   vm.upsertFriend = function(friend) {
-    TweetsFactory.upsertFriend(friend)
+    var friendParam = {}
+    friend = JSON.parse("[" + friend + "]");
+    friendParam.category_id = friend[0];
+    friendParam.twitterId = friend[1];
+    TweetsFactory.upsertFriend(friendParam)
     .then(function() {
       resetForm();
     }, function(response) {

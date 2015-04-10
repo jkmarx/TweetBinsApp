@@ -9,7 +9,10 @@ function FriendCtrl( FriendFactory,CategoriesFactory){
   vm.categories = CategoriesFactory.categories;
 
   vm.upsertFriend = function(friend) {
-    FriendFactory.upsertFriend(friend)
+    var friendParam = {}
+    friendParam.category_id = friend[0];
+    friendParam.twitterId = friend[1];
+    FriendFactory.upsertFriend(friendParam)
     .then(function() {
       resetForm();
     }, function(response) {
