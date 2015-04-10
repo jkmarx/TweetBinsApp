@@ -49,7 +49,6 @@ angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$routePar
         'AUTHORIZATION': 'Token token=' + data.token
       }
     };
-
     if (category.id) {
       return $http.put(ServerUrl + '/categories/' + category.id, params)
       .then(getCategories);

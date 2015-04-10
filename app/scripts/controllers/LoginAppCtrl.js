@@ -13,7 +13,7 @@ function LoginAppCtrl(AuthFactory, $location, $scope){
   vm.login = function(credentials){
     console.log('in applogin function');
     AuthFactory.login(credentials).then(function(response){
-      console.log(response);
+      // console.log(response);
       vm.credentials = {};
       $location.path('/');
     });
