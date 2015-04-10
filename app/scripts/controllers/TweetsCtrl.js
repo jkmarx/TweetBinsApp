@@ -44,6 +44,7 @@ function TweetsCtrl( $scope, TweetsFactory, CategoriesFactory){
 
   function resetForm() {
     TweetsFactory.setFriend({twitterId: '', category_id: ''});
+    CategoriesFactory.setCategory({name:''});
     vm.serverErrors = false;
   }
   resetForm();

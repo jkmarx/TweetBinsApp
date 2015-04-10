@@ -47,7 +47,8 @@ img{
 
 .glyphicon {
   color: #000000;
-  font-size: 1.3em;
+  font-size: 1.0em;
+  padding-left: 10px;
 }
 
 .footer {
@@ -110,7 +111,7 @@ img{
 
   .panel-heading form#friend-form{
     display: inline;
-    padding-left: 60%;
+    padding-left: 50%;
     width: 100%;
   }
   .panel-default > .panel-body{
@@ -124,13 +125,17 @@ img{
     /*color: #000000;*/
   }
 
+  #categoryLinks{
+    padding: 15px 0 0 10px;
+    font-size: 1.5em;
+  }
+
 /* Responsive: Portrait tablets and down */
 @media screen and (max-width: 830px) {
   html, body {
   padding-top: 20px;
   height: 100%;
   width: 100%;
- // font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   background-color: #FFFFFF;
   }
@@ -145,7 +150,6 @@ img{
     height:auto;
   }
 
-  // /* Remove the padding we set earlier */
   .header,
   .footer {
       padding-left: 0;

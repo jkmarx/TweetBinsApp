@@ -1,7 +1,7 @@
-<ul>
+<ul id="categoryLinks">
   <li> <a href="#/dashboard">All Tweets</a></li>
   <li ng-repeat="category in categoriesCtrl.categories">
-    <a href="#/categories/{{category.id}}">{{ category.name }}</a> <a ng-click="categoriesCtrl.editCategory(category)">update</a> <a ng-click="categoriesCtrl.deleteCategory(category)">delete</a></li>
+    <a href="#/categories/{{category.id}}">{{ category.name }}</a> <a ng-click="categoriesCtrl.editCategory(category)"> <span class="glyphicon glyphicon-pencil"></span></a></li>
 </ul>
 
   <form role="form" name="upsertCategory" ng-submit="categoriesCtrl.upsertCategory(categoriesCtrl.category)" novalidate ng-controller="CategoriesCtrl as categoriesCtrl">

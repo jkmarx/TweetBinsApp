@@ -4,6 +4,12 @@
       <div class='panel panel-default'>
         <div class='panel-heading'>
             <h3>{{ tweet.userScreenname }}</h3>
+           <!--  <div class="checkbox"> -->
+              <!-- <label>
+              <input type="checkbox" ng-model="tweet.faveTweet" name="checkFave" ng-true-value="tweet" ng-false-value=""> Save Tweet
+              </label>
+            </div> -->
+
 
             <form role="form" id="friend-form" name="upsertFriendForm" ng-submit="tweetsCtrl.upsertFriend($scope.tweetsCtrl.friend)">
               <select class="select-category" ng-model="$scope.tweetsCtrl.friend" required>

@@ -3,7 +3,7 @@
 
 <div class='col-md-9'>
   <div ng-controller="CategoryCtrl as categoryCtrl">
-    <h2>{{categoryCtrl.category.name}}</h2>
+    <h2>{{categoryCtrl.category.name}}<a ng-dblclick="categoriesCtrl.deleteCategory(category)"><span class="glyphicon glyphicon-trash"></span></a></h2>
   <!--     <li>Category: {{categoryCtrl.category.friends}}</li> -->
 
       <!-- <div class='col-md-9'>
