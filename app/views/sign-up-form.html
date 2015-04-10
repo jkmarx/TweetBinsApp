@@ -1,0 +1,16 @@
+<div class="col-md-10 col-md-offset-2">
+  <h2> Sign-Up</h2>
+  <form class="login-form" name="registerForm" ng-submit="loginAppCtrl.register(loginAppCtrl.credentials)" novalidate>
+
+    <div class="form-group">
+      <input id="email" type="email" name="emailnew" placeholder="Valid Email" ng-model="loginAppCtrl.credentials.email" required>
+
+      <input id="password" type="password" name="passwordnew" placeholder="Password, min 8 characters" ng-model="loginAppCtrl.credentials.password" required>
+
+      <input id="twitterUsername" type="text" name="twitterUsernamenew" placeholder="TwitterUsername" ng-model="loginAppCtrl.credentials.twitterUsername" required>
+
+      <input type="submit" class=" button-submit" ng-disabled="registerForm.$invalid" value="Register">
+    </div>
+  </form>
+</div>
+

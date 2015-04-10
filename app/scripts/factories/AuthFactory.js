@@ -17,6 +17,12 @@ function AuthFactory($http, $window, ServerUrl){
   }
 
   function logout(){
+    var data = JSON.parse($window.localStorage.getItem('tb-user'));
+    var config = {
+      headers: {
+        'AUTHORIZATION': 'Token token=' + data.token
+      }
+    };
       return $http.get(ServerUrl + '/logout').success(function(response){
         $window.localStorage.removeItem('tb-user');
       });
@@ -37,10 +43,24 @@ function AuthFactory($http, $window, ServerUrl){
     $http.defaults.headers.common.Authorization = 'Token token=' + data.token;
   };
 
+  var postNewUser = function(user){
+    var params = {
+      user: user
+    };
+
+    return $http.post(ServerUrl + '/users', params).success(function(response){
+      _storeSession(response);
+
+    }).error(function(data, status, headers, config){
+      console.log(data);
+    });
+  };
+
   return{
     login: login,
     logout: logout,
     isAuthenticated: isAuthenticated,
     clearStorage: clearStorage,
+    postNewUser: postNewUser
   };
 }

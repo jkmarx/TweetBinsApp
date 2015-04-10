@@ -28,7 +28,7 @@ angular.module('TweetBinsApp').config(['$routeProvider',
       controller: 'AboutCtrl'
     })
     .otherwise({
-      redirectTo: '/login'
+      redirectTo: '/loginApp'
     });
   }
 ]);
