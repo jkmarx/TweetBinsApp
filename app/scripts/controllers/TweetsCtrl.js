@@ -1,5 +1,5 @@
 'use strict';
-angular.module('TweetBinsApp').controller('TweetsCtrl', TweetsCtrl);
+angular.module('TweetBinsApp').controller('TweetsCtrl', TweetsCtrl).filter('tweetsAddLinks', tweetsAddLinks);
 
 TweetsCtrl.$inject = [ '$scope','TweetsFactory', 'CategoriesFactory'];
 
@@ -13,12 +13,11 @@ function TweetsCtrl( $scope, TweetsFactory, CategoriesFactory){
   });
 
   vm.upsertFriend = function(friend) {
-    var friendParam = {}
+    var friendParam = {};
     friend = JSON.parse("[" + friend + "]");
     friendParam.category_id = friend[0];
     friendParam.twitterId = friend[1];
-    TweetsFactory.upsertFriend(friendParam)
-    .then(function() {
+    TweetsFactory.upsertFriend(friendParam).then(function() {
       resetForm();
     }, function(response) {
       vm.serverErrors = true;
@@ -49,3 +48,29 @@ function TweetsCtrl( $scope, TweetsFactory, CategoriesFactory){
   }
   resetForm();
 }
+
+function tweetsAddLinks(){
+  return function(param)
+  {
+    if(param.length > 0){
+      var tweetArr;
+      var tweetCopy = param;
+      for(var j = 0; j < param.length; j++){
+        tweetArr = param[j].text.split(' ');
+        for (var i = 0; i < tweetArr.length; i++){
+          if (tweetArr[i].slice(0,7) === 'http://' || tweetArr[i].slice(0,8) === 'https://'){
+            tweetArr[i] = '<a href=' + tweetArr[i] + ' target="_blank">' + tweetArr[i] + '</a>';
+          } else if (tweetArr[i].slice(0,1) === '@'){
+            tweetArr[i] = '<a href="https://twitter.com/' + tweetArr[i].slice(1,tweetArr[i].length-1) + '" target="_blank">' + tweetArr[i] + '</a>';
+          } else if (tweetArr[i].slice(0,1) === '#'){
+            tweetArr[i] = "<a href='https://twitter.com/hashtag/" + tweetArr[i].replace(/[#]/g, '') + "?src=hash' target='_blank'>" + tweetArr[i] + "</a>";
+          }
+        }
+
+      tweetCopy[j].text = tweetArr.join(' ');
+      }
+      return tweetCopy;
+    }
+  };
+}
+

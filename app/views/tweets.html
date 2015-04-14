@@ -1,7 +1,7 @@
 <div class='col-md-10'>
   <div ng-controller="TweetsCtrl as tweetsCtrl">
-    <div ng-repeat="tweet in tweetsCtrl.tweets" >
-      <div class='panel panel-default'>
+    <div ng-repeat="tweet in tweetsCtrl.tweets | tweetsAddLinks" >
+      <div class='panel panel-default panel-transparent'>
         <div class='panel-heading'>
             <h3>{{ tweet.userScreenname }}</h3>
            <!--  <div class="checkbox"> -->
@@ -31,8 +31,8 @@
             </form>
         </div> -->
 
-        <div class='panel-body'>
-          {{ tweet.text }}
+        <div class='panel-body' ng-bind-html="tweet.text">
+         <!--  {{ tweet.text | tweetsAddLinks}} -->
         </div>
         <div class='panel-footer'>
             <em>Created: {{ tweet.created_at }}</em>

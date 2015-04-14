@@ -1,7 +1,7 @@
 
 <div id="sideOptions">
   <ul id="categoryLinks">
-    <li> <a href="#/dashboard">All Tweets</a></li>
+    <li> <a href="#/dashboard">All Friends Tweets</a></li>
     <li ng-repeat="category in categoriesCtrl.categories">
       <a href="#/categories/{{category.id}}">{{ category.name }}</a> <a ng-click="categoriesCtrl.editCategory(category)"> <span class="glyphicon glyphicon-pencil"></span></a></li>
   </ul>

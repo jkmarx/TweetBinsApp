@@ -10,13 +10,13 @@
       <di-tweets tweets="tweetsCtrl.tweets" category="categoryCtrl.category"></di-tweets></div>
       </div> -->
     <div ng-controller="TweetsCtrl as tweetsCtrl">
-      <div ng-repeat="tweet in tweetsCtrl.tweets | tweetsFilter:this" >
-      <div class='panel panel-default'>
+      <div ng-repeat="tweet in tweetsCtrl.tweets | tweetsFilter:this | tweetsAddLinks" >
+      <div class='panel panel-default panel-transparent'>
         <div class='panel-heading'>
           {{ tweet.userScreenname }}
         </div>
-        <div class='panel-body'>
-          {{ tweet.text }}
+        <div class='panel-body' ng-bind-html="tweet.text">
+        <!--   {{ tweet.text }} -->
         </div>
         <div class='panel-footer'>
           <em>Created: {{ tweet.created_at }}</em></li>
