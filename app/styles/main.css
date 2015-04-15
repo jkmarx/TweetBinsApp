@@ -123,7 +123,9 @@ img{
   }
 
   .panel-transparent .panel-body{
-      background: rgba(255,255,255,0.7)!important;
+     /* background: rgba(255,255,255,0.7)!important;*/
+     background: rgba(0,0,30,0.7)!important;
+     color:white;
   }
 
   .panel-transparent .panel-footer{
@@ -145,12 +147,12 @@ img{
 
   .panel-footer form#friend-form{
     display: inline;
-    padding-left: 10%;
+    padding-left: 0;
     width: 100%;
   }
   .panel-default > .panel-body{
-    background-color: white;
-    text-align:center;
+    /*background-color: white;*/
+    text-align:left;
   }
 
   .panel-footer{

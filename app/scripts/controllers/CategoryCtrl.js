@@ -45,7 +45,7 @@ function tweetsFilter(){
 function tweetsAddLinks(){
   return function(param)
   {
-    if(param.length > 0){
+    if(param && param.length > 0){
       var tweetArr;
       var tweetCopy = param;
       for(var j = 0; j < param.length; j++){
