@@ -12,4 +12,4 @@ angular.module('TweetBinsApp').directive('gaNavbar',[function(){
       //mainpulate dom hre
     }
   };
-}])
+}]);

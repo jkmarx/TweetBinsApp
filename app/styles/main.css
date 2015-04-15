@@ -10,6 +10,14 @@ html, body {
   background-repeat: no-repeat;*/
 }
 
+a{
+  color: #ADD8E6;
+}
+
+a:hover{
+  color: #ffa500;
+}
+
 div.container-fluid{
   min-width: 100%;
   height:auto;

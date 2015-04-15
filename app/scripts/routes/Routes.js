@@ -23,6 +23,10 @@ angular.module('TweetBinsApp').config(['$routeProvider',
       templateUrl: 'views/category.html',
       controller: 'CategoryCtrl'
     })
+    .when('/saveTweets', {
+      templateUrl: 'views/save-tweets.html',
+      controller: 'SaveTweetsCtrl'
+    })
     .when('/about', {
       templateUrl: 'views/about.html',
       controller: 'AboutCtrl'

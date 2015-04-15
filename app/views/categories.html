@@ -4,6 +4,8 @@
     <li> <a href="#/dashboard">All Friends Tweets</a></li>
     <li ng-repeat="category in categoriesCtrl.categories">
       <a href="#/categories/{{category.id}}">{{ category.name }}</a> <a ng-click="categoriesCtrl.editCategory(category)"> <span class="glyphicon glyphicon-pencil"></span></a></li>
+    <li>
+      <a href="#/saveTweets">Saved Tweets</a></li>
   </ul>
 
     <form role="form" name="upsertCategory" ng-submit="categoriesCtrl.upsertCategory(categoriesCtrl.category)" novalidate ng-controller="CategoriesCtrl as categoriesCtrl">
@@ -12,13 +14,13 @@
       <h4 ng-if="categoriesCtrl.category.id">Update Bin</h4>
 
       <div class="form-group">
-          <input type="text" class="form-control" ng-model="categoriesCtrl.category.name" placeholder="Enter New Bin" style="width: 200px">
+        <input type="text" class="form-control" ng-model="categoriesCtrl.category.name" placeholder="Enter New Bin" style="width: 200px">
       </div>
 
       <button type="submit" class="btn btn-primary btn-xs" ng-disabled="upsertCategory.$invalid">Submit</button>
 
       <button type="reset" class="btn btn-default btn-xs" ng-click="categoriesCtrl.cancel()">Cancel</button>
-        </form>
-      </div>
+      </form>
+    </div>
   </div>
 </div>

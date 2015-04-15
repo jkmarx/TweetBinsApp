@@ -1,0 +1,20 @@
+
+<div class='col-md-3'>
+  <di-categories categories="categoriesCtrl.categories"></di-categories>
+</div>
+
+<div class='col-md-9'>
+  <div ng-controller="SaveTweetsCtrl as saveTweetsCtrl">
+    <div ng-repeat="saveTweet in saveTweetsCtrl.saveTweets" >
+    <div class='panel panel-default panel-transparent'>
+
+      <div class='panel-body' ng-bind-html="saveTweet.text">
+
+      </div>
+      <div class='panel-footer'>
+        <strong> {{ saveTweet.userScreenname }} </strong>at <em>{{ saveTweet.created_at }}</em>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
