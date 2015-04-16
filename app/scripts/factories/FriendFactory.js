@@ -51,6 +51,19 @@ angular.module('TweetBinsApp').factory('FriendFactory', ['$http', '$routeParams'
     }
   }
 
+    var deleteFriend = function(friendId) {
+      var data = JSON.parse($window.localStorage.getItem('tb-user'));
+    var config = {
+      headers: {
+        'AUTHORIZATION': 'Token token=' + data.token
+      }
+    };
+    return $http.delete(ServerUrl + '/friends/' + friendId)
+    .then(function(response) {
+      console.log(response);
+    });
+  };
+
   function requestFailure(response){
     console.log('in requestFailure');
     console.log(response);
@@ -60,7 +73,8 @@ angular.module('TweetBinsApp').factory('FriendFactory', ['$http', '$routeParams'
     friend: friend,
     getFriend: getFriend,
     upsertFriend: upsertFriend,
-    setFriend: setFriend
+    setFriend: setFriend,
+    deleteFriend: deleteFriend
   };
 
 }]);

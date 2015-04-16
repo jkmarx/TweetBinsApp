@@ -8,13 +8,22 @@
     <div ng-repeat="saveTweet in saveTweetsCtrl.saveTweets" >
     <div class='panel panel-default panel-transparent'>
 
-      <div class='panel-body' ng-bind-html="saveTweet.text">
-
+      <div class='panel-body'>
+      <div class="delete-icon">
+        <a ng-dblclick="saveTweetsCtrl.deleteSaveTweet(saveTweet)"><span class="glyphicon glyphicon-trash"></span></a>
+        </div>
+      <div ng-bind-html="saveTweet.text"> </div>
       </div>
       <div class='panel-footer'>
+      <div>
         <strong> {{ saveTweet.userScreenname }} </strong>at <em>{{ saveTweet.created_at }}</em>
+        </div>
       </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- <a ng-click="categoriesCtrl.editCategory(category)">
+ <span class="glyphicon glyphicon-pencil"></span></a> -->
+<!-- <a ng-dblclick="categoriesCtrl.deleteCategory(category)"><span class="glyphicon glyphicon-trash"></span></a> -->

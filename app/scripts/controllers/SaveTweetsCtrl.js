@@ -41,8 +41,8 @@ function SaveTweetsCtrl($scope, SaveTweetsFactory){
     SaveTweetsFactory.setCategory(saveTweet);
   };
 
-  vm.deleteCategory = function(saveTweet) {
-    SaveTweetsFactory.deleteCategory(saveTweet);
+  vm.deleteSaveTweet = function(saveTweet) {
+    SaveTweetsFactory.deleteSaveTweet(saveTweet);
   };
 
 

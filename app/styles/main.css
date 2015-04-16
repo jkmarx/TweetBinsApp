@@ -33,6 +33,10 @@ img{
   height: auto;
 }
 
+div.delete-icon{
+  text-align: right;
+}
+
 #wrap{
   min-height: 96%;
   height: auto;
@@ -46,10 +50,11 @@ img{
 
 .navbar {
   height:80px;
+  background-image: url("/images/sky-and-flowers.jpg");
   /*background-image: url("http://imgur.com/NFSaw6k.jpg");*/
   background-size: 100% auto;
   /*background: rgba(0,0,70,0.2);*/
-  background: transparent;
+  /*background: transparent;*/
   color: white;
   font-size: 1.5em;
 }
@@ -68,8 +73,9 @@ img{
 
 .glyphicon {
   color: #FFFFFF;
+  /*color: #000000;*/
   font-size: .8em;
-  padding-left: 10px;
+  padding: 0, 0, 0, 10px;
 }
 
 .footer {
@@ -114,8 +120,8 @@ img{
   .panel{
     width: 600px;
     height: auto;
-    padding-bottom: 0px;
-    margin: 20px 0 10px 0;
+    padding: 0;
+    margin: 0 0 10px 0;
     background: rgba(0,0,0,0.4);
     border: 2px solid rgba(0,0,0,0.4);
     text-align: center;

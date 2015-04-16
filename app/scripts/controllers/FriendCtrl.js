@@ -1,9 +1,9 @@
 'use strict';
 angular.module('TweetBinsApp').controller('FriendCtrl', FriendCtrl);
 
-FriendCtrl.$inject = ['FriendFactory','CategoriesFactory'];
+FriendCtrl.$inject = ['FriendFactory','CategoriesFactory', '$route'];
 
-function FriendCtrl( FriendFactory,CategoriesFactory){
+function FriendCtrl( FriendFactory,CategoriesFactory, $route){
   var vm = this;
   vm.friend = FriendFactory.friend;
   vm.categories = CategoriesFactory.categories;
@@ -25,9 +25,15 @@ function FriendCtrl( FriendFactory,CategoriesFactory){
     FriendFactory.setFriend(friend);
   };
 
+  vm.deleteFriend = function(friendId) {
+    FriendFactory.deleteFriend(friendId);
+    $route.reload();
+  };
+
   vm.cancel = function() {
     resetForm();
   };
+
 
   function handleErrors(errObj) {
     var errString = '';
