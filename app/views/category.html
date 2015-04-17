@@ -1,25 +1,26 @@
 
-<div class='col-md-3'> <di-categories categories="categoriesCtrl.categories"></di-categories></div>
+<div class='col-md-3'>
+  <di-categories categories="categoriesCtrl.categories">
+  </di-categories>
+</div>
 
 <div class='col-md-9'>
   <div ng-controller="CategoryCtrl as categoryCtrl">
-    <h2>{{categoryCtrl.category.name}}</h2>
-  <!--     <li>Category: {{categoryCtrl.category.friends}}</li> -->
+    <h2>{{categoryCtrl.category.name}} &nbsp <a class="trashLink" ng-dblclick="categoriesCtrl.deleteCategory(category)"><span class="glyphicon glyphicon-trash"></span></a></h2>
 
-      <!-- <div class='col-md-9'>
-      <di-tweets tweets="tweetsCtrl.tweets" category="categoryCtrl.category"></di-tweets></div>
-      </div> -->
     <div ng-controller="TweetsCtrl as tweetsCtrl">
       <div ng-repeat="tweet in tweetsCtrl.tweets | tweetsFilter:this | tweetsAddLinks" >
-      <div class='panel panel-default panel-transparent'>
-        <!-- <div class='panel-heading'>
-          {{ tweet.userScreenname }}
-        </div> -->
-        <div class='panel-body' ng-bind-html="tweet.text">
-        <!--   {{ tweet.text }} -->
+        <div class='panel panel-default panel-transparent'>
+
+        <div class='panel-body' ng-controller="SaveTweetsCtrl as saveTweetsCtrl">
+          <button class="saveTweet" ng-click="saveTweetsCtrl.upsertSaveTweet({{tweet}})"><span class="glyphicon glyphicon-pushpin"></span></button>
+          <img src={{tweet.profile_image_url}} class="profile">
+          <div ng-bind-html="tweet.text"></div>
         </div>
+
         <div class='panel-footer' ng-controller="FriendCtrl as friendCtrl">
-          <strong><a ng-dblclick="friendCtrl.deleteFriend(tweet.userId)"><span class="glyphicon glyphicon-remove"></span></a> {{ tweet.userScreenname }} </strong>at <em>{{ tweet.created_at }}</em>
+          <strong><a class="removeFriend" ng-dblclick="friendCtrl.deleteFriend(tweet.userId)"><span class="glyphicon glyphicon-remove"></span></a> {{ tweet.userScreenname }} </strong>at <em>{{ tweet.created_at }}</em>
+        </div>
       </div>
     </div>
   </div>

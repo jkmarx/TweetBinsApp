@@ -17,18 +17,9 @@ function SaveTweetsCtrl($scope, SaveTweetsFactory){
       vm.saveTweets = SaveTweetsFactory.saveTweets;
     });
   }
-  $scope.saveTweet = function($scope) {
-    value : $scope.value;
-  };
 
-  $scope.$watch('saveTweet.value', function(){
-    if($scope.saveTweet.value){
-      SaveTweetsFactory.upsertSaveTweet($scope.saveTweet.value);
-    }
-  });
-
-  vm.upsertCategory = function(saveTweet) {
-    SaveTweetsFactory.upsertCategory(saveTweet)
+  vm.upsertSaveTweet = function(saveTweet) {
+    SaveTweetsFactory.upsertSaveTweet(saveTweet)
     .then(function() {
       resetForm();
     }, function(response) {
@@ -37,8 +28,8 @@ function SaveTweetsCtrl($scope, SaveTweetsFactory){
     });
   };
 
-  vm.editCategory = function(saveTweet) {
-    SaveTweetsFactory.setCategory(saveTweet);
+  vm.editSaveTweet = function(saveTweet) {
+    SaveTweetsFactory.setSaveTweet(saveTweet);
   };
 
   vm.deleteSaveTweet = function(saveTweet) {

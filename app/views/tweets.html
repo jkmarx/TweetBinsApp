@@ -4,9 +4,6 @@
       <div class='panel panel-default panel-transparent'>
         <!-- <div class='panel-heading'>
             <h3>{{ tweet.userScreenname }}</h3>
-
-
-
         </div> -->
 
             <!-- <div ng-controller="FriendCtrl as friendCtrl">
@@ -26,24 +23,21 @@
             </form>
         </div> -->
 
-        <div class='panel-body' ng-bind-html="tweet.text">
-         <!--  {{ tweet.text }} -->
+        <div class='panel-body' ng-controller="SaveTweetsCtrl as saveTweetsCtrl">
+
+          <button class="saveTweet" ng-click="saveTweetsCtrl.upsertSaveTweet({{tweet}})"><span class="glyphicon glyphicon-pushpin"></span></button>
+          <img src={{tweet.profile_image_url}} class="profile">
+          <div ng-bind-html="tweet.text"></div>
         </div>
         <div class='panel-footer'>
-            <strong> {{ tweet.userScreenname }} </strong>at <em>{{ tweet.created_at }}</em>
-            <form role="form" id="friend-form" name="upsertFriendForm" ng-submit="tweetsCtrl.upsertFriend($scope.tweetsCtrl.friend)">
+          <strong> {{ tweet.userScreenname }} </strong>at <em>{{ tweet.created_at }}</em>
+          <form role="form" id="friend-form" name="upsertFriendForm" ng-submit="tweetsCtrl.upsertFriend($scope.tweetsCtrl.friend)">
               <select class="select-category" ng-model="$scope.tweetsCtrl.friend" required>
               <option value=''>Select Bin</option>
               <option ng-repeat="category in tweetsCtrl.categories" value="{{category.id}}, {{tweet.userId}}">{{category.name}}</option>
               </select>
               <button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok"></span></button>
-            </form>
-
-            <form name="tweetForm" ng-controller="SaveTweetsCtrl">
-
-            <input type="radio" ng-model="saveTweet.value" value={{tweet}}>
-            <div ng-if="saveTweet.value"> Tweet Saved</div>
-            </form>
+          </form>
           <!-- </div> -->
         </div>
       </div>

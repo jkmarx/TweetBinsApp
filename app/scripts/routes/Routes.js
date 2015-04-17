@@ -11,6 +11,10 @@ angular.module('TweetBinsApp').config(['$routeProvider',
       templateUrl: 'views/login-app.html'
       // controller: 'LoginAppCtrl'
     })
+    .when('/userAccount', {
+      templateUrl: 'views/user-account.html',
+      controller: 'UserInfoCtrl'
+    })
     .when('/tweets', {
       templateUrl: 'views/tweets.html',
       controller: 'TweetsCtrl'

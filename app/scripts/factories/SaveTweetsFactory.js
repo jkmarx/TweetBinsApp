@@ -40,7 +40,7 @@ angular.module('TweetBinsApp').factory('SaveTweetsFactory', ['$http', '$routePar
 
   var upsertSaveTweet = function(saveTweet) {
     var params = {
-      save_tweet: JSON.parse(saveTweet)
+      save_tweet: saveTweet
     };
 
     var data = JSON.parse($window.localStorage.getItem('tb-user'));
@@ -56,6 +56,7 @@ angular.module('TweetBinsApp').factory('SaveTweetsFactory', ['$http', '$routePar
       return $http.post(ServerUrl + '/save_tweets', params)
       .then(function(response) {
         saveTweets.push(response.data);
+        console.log(response.data);
       }, requestFailure);
     }
   };

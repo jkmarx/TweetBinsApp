@@ -7,6 +7,7 @@ angular
 AuthFactory.$inject = ['$http','$window', 'ServerUrl'];
 
 function AuthFactory($http, $window, ServerUrl){
+  var userInfo = {};
 
   function login(credentials){
     console.log(credentials);
@@ -15,6 +16,21 @@ function AuthFactory($http, $window, ServerUrl){
       _storeSession(response);
     });
   }
+
+  function getUserInfo() {
+    var data = JSON.parse($window.localStorage.getItem('tb-user'));
+    var config = {
+      headers: {
+        'AUTHORIZATION': 'Token token=' + data.token
+      }
+    };
+    var userEmail = JSON.parse($window.localStorage.getItem('tb-user'))["email"];
+     return $http.get('http://localhost:3000/users').then(function(response) {
+        console.log(response.data);
+        angular.copy(response.data, userInfo);
+      }, requestFailure);
+
+   }
 
   function logout(){
     var data = JSON.parse($window.localStorage.getItem('tb-user'));
@@ -43,11 +59,28 @@ function AuthFactory($http, $window, ServerUrl){
     $http.defaults.headers.common.Authorization = 'Token token=' + data.token;
   };
 
-  var postNewUser = function(user){
+  var upsertUser = function(user){
+    var data = JSON.parse($window.localStorage.getItem('tb-user'));
+    var config = {
+      headers: {
+        'AUTHORIZATION': 'Token token=' + data.token
+      }
+    };
     var params = {
       user: user
     };
+    return $http.post(ServerUrl + '/users/update', params).success(function(response){
+      _storeSession(response);
 
+    }).error(function(data, status, headers, config){
+      console.log(data);
+    });
+  };
+
+  var registerUser = function(user){
+    var params = {
+      user: user
+    };
     return $http.post(ServerUrl + '/users', params).success(function(response){
       _storeSession(response);
 
@@ -56,11 +89,33 @@ function AuthFactory($http, $window, ServerUrl){
     });
   };
 
+    function requestFailure(response){
+    console.log('in requestFailure');
+    console.log(response);
+  }
+
+  var deleteUser = function(user) {
+      var data = JSON.parse($window.localStorage.getItem('tb-user'));
+    var config = {
+      headers: {
+        'AUTHORIZATION': 'Token token=' + data.token
+      }
+    };
+    return $http.delete(ServerUrl + '/users' )
+    .then(function(response) {
+      console.log(response);
+    });
+  };
+
   return{
     login: login,
     logout: logout,
     isAuthenticated: isAuthenticated,
     clearStorage: clearStorage,
-    postNewUser: postNewUser
+    upsertUser: upsertUser,
+    getUserInfo: getUserInfo,
+    userInfo: userInfo,
+    registerUser: registerUser,
+    deleteUser: deleteUser
   };
 }

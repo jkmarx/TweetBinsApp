@@ -15,8 +15,10 @@ a{
 }
 
 a:hover{
-  color: #ffa500;
+  color: #00e500;
 }
+
+
 
 div.container-fluid{
   min-width: 100%;
@@ -35,6 +37,16 @@ img{
 
 div.delete-icon{
   text-align: right;
+}
+
+
+button.saveTweet{
+  position: relative;
+  float: right;
+  border: 3px solid #f5f5f5;
+  border-radius: 50%;
+  background: transparent;
+  padding: 0 2px 3px 5px
 }
 
 #wrap{
@@ -72,10 +84,42 @@ div.delete-icon{
 }
 
 .glyphicon {
-  color: #FFFFFF;
-  /*color: #000000;*/
-  font-size: .8em;
+  /*color: #FFFFFF;*/
+  color: #000000;
+  font-size: 1em;
   padding: 0, 0, 0, 10px;
+}
+
+button.saveTweet span.glyphicon{
+  color: #ADD8E6;
+}
+
+button.saveTweet span.glyphicon:hover{
+  color: #ffa500;
+}
+
+a.trashLink{
+  position: relative;
+  float:right;
+}
+a.trashLink span.glyphicon{
+  color: #ADD8E6;
+}
+
+a.trashLink span.glyphicon:hover{
+  color: #ff0000;
+}
+
+a.removeFriend span.glyphicon{
+  color: #ADD8E6;
+}
+
+a.removeFriend span.glyphicon:hover{
+  color: #ff0000;
+}
+
+.panel-body button {
+  align: right;
 }
 
 .footer {
@@ -102,97 +146,107 @@ div.delete-icon{
   padding: 5px 10px 10px 5px;
 }
 
-  ul li{
-   list-style-type: none;
-   text-align: left;
- }
+ul li{
+  list-style-type: none;
+  text-align: left;
+}
 
-  a h3{
-    margin-top: 3px;
-    color: white;
-    font-size: 1.7em;
-  }
-  h4{
-    margin-bottom: 2px;
-    padding-bottom: 0px;
-  }
-
-  .panel{
-    width: 600px;
-    height: auto;
-    padding: 0;
-    margin: 0 0 10px 0;
-    background: rgba(0,0,0,0.4);
-    border: 2px solid rgba(0,0,0,0.4);
-    text-align: center;
-  }
-
-  .panel-transparent {
-        background: none;
-    }
-
-  .panel-transparent .panel-heading{
-      background: rgba(0,0,30,0.7)!important;
-      padding: 10px;
-  }
-
-  .panel-transparent .panel-body{
-     /* background: rgba(255,255,255,0.7)!important;*/
-     background: rgba(0,0,30,0.7)!important;
-     color:white;
-  }
-
-  .panel-transparent .panel-footer{
-      background: rgba(255,255,255,0.7)!important;
-      padding: 5px;
-  }
-  .panel > .panel-heading{
-    /*background: rgba(0,0,0,0.5);*/
-    /*background: rgba(0,0,0,0.1);*/
-    /*background-color: transparent;*/
-    color: white;
-    font-size:1.2em;
-    text-align: left;
-  }
-
-  .panel-heading h3{
-    display: inline;
-  }
-
-  .panel-footer form#friend-form{
-    display: inline;
-    padding-left: 0;
-    width: 100%;
-  }
-  .panel-default > .panel-body{
-    /*background-color: white;*/
-    text-align:left;
-  }
-
-  .panel-footer{
-    /*background-color: white;*/
-    text-align:left;
-    /*color: #000000;*/
-  }
-
-  #categoryLinks{
-    width:100%;
-    padding: 10px 20px 10px 20px;
-    font-size: 1.5em;
-  }
-
-  #sideOptions {
-  position: fixed;
-  border-radius: 10px 5%;
-  top: 100px;
-  padding: 5px 10px 21px 10px;
-  background: rgba(0,0,30,0.7);
+a h3{
+  margin-top: 3px;
   color: white;
-  }
+  font-size: 1.7em;
+}
+h4{
+  margin-bottom: 2px;
+  padding-bottom: 0px;
+}
 
-  #categoryLinks a{
-    color: white;
-  }
+.panel{
+  width: 600px;
+  height: auto;
+  padding: 0;
+  margin: 0 0 10px 0;
+  /*background: rgba(0,0,0,0.4);*/
+  background: white;
+  color: black;
+  border: 2px solid rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.panel-transparent {
+  background: none;
+}
+
+.panel-transparent .panel-heading{
+  background: rgba(0,0,30,0.7)!important;
+  padding: 10px;
+}
+
+.panel-transparent .panel-body{
+   /* background: rgba(255,255,255,0.7)!important;*/
+   /*background: rgba(0,0,30,0.7)!important;
+   color:white;*/
+   background: rgba(255,255,255,0.8)!important;
+  color: black;
+}
+
+.panel-transparent .panel-footer{
+    background: rgba(255,255,255,0.7)!important;
+    padding: 5px;
+}
+.panel > .panel-heading{
+  /*background: rgba(0,0,0,0.5);*/
+  /*background: rgba(0,0,0,0.1);*/
+  /*background-color: transparent;*/
+  color: white;
+  font-size:1.2em;
+  text-align: left;
+}
+
+.panel-heading h3{
+  display: inline;
+}
+
+.panel-footer form#friend-form{
+  display: inline;
+  padding-left: 0;
+  width: 100%;
+}
+.panel-default > .panel-body{
+  /*background-color: white;*/
+  text-align:left;
+}
+
+.panel-footer{
+  /*background-color: white;*/
+  text-align:left;
+  /*color: #000000;*/
+}
+
+img.profile{
+  position: relative;
+  float: left;
+  padding-right:5px;
+}
+
+#categoryLinks{
+  width:100%;
+  padding: 10px 20px 10px 20px;
+  font-size: 1.5em;
+}
+
+#sideOptions {
+position: fixed;
+border-radius: 10px 5%;
+top: 100px;
+padding: 5px 10px 21px 10px;
+background: rgba(0,0,30,0.7);
+color: white;
+}
+
+#categoryLinks a{
+  color: white;
+}
 
 /* Responsive: Portrait tablets and down */
 @media screen and (max-width: 830px) {
