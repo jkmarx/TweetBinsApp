@@ -19,7 +19,7 @@
         </div>
 
         <div class='panel-footer' ng-controller="FriendCtrl as friendCtrl">
-          <strong><a class="removeFriend" ng-dblclick="friendCtrl.deleteFriend(tweet.userId)"><span class="glyphicon glyphicon-remove"></span></a> {{ tweet.userScreenname }} </strong>at <em>{{ tweet.created_at }}</em>
+          <strong><a class="removeFriend" ng-dblclick="friendCtrl.deleteFriend(tweet.userId)"><span class="glyphicon glyphicon-remove"></span></a> <a href="https://twitter.com/{{ tweet.userScreenname }} " target="_blank"> {{ tweet.userScreenname }}</a> </strong>at <em>{{ tweet.created_at }}</em>
         </div>
       </div>
     </div>

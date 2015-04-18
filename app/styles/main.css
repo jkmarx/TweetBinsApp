@@ -3,20 +3,15 @@ html, body {
   height: 100%;
   width: 100%;
   font-size: 16px;
-  /*background-color: #FFFFFF;*/
   background-image: url("/images/sky-and-flowers.jpg");
   background-attachment: fixed;
-  /*background: url("110_2118.JPG");
-  background-repeat: no-repeat;*/
 }
 
 a{
-  /*color: #ADD8E6;*/
   color: #000080;
 }
 
-a:hover{
-  /*color: #00e500;*/
+a:hover{/
   color: #006400;
 }
 
@@ -62,8 +57,7 @@ button.saveTweet{
 
 .navbar {
   height:80px;
-  background-image: url("/images/sky-and-flowers.jpg");
-  /*background-image: url("http://imgur.com/NFSaw6k.jpg");*/
+  background-image: url("/images/sky-and-flowers_header.jpg");
   background-size: 100% auto;
   /*background: rgba(0,0,70,0.2);*/
   /*background: transparent;*/
@@ -71,27 +65,26 @@ button.saveTweet{
   font-size: 1.5em;
 }
 
-#nav-menu{
+/*#nav-menu{
   background-color: transparent;
-}
+}*/
+
 /*#nav-menu a{
- /* font-size: 1.5em;*/
-  /*margin: 10px 15px 0 0;
-  background-color: transparent;*/
- /* background: rgba(0,0,70,0.3);*/
-  /*color: white;
+  color: white;
   border-radius: 10px 5%;
 }*/
 
+.navbar-nav > li > a{
+  padding-top: 3px;
+}
+
 .glyphicon {
-  /*color: #FFFFFF;*/
   color: #000000;
   font-size: 1em;
   padding: 0, 0, 0, 10px;
 }
 
 button.saveTweet span.glyphicon{
-/*  color: #ADD8E6;*/
   color: #000080;
 }
 
@@ -104,7 +97,7 @@ a.trashLink{
   float:right;
 }
 a.trashLink span.glyphicon{
-  color: #ADD8E6;
+  color: #000080;
 }
 
 a.trashLink span.glyphicon:hover{
@@ -112,7 +105,7 @@ a.trashLink span.glyphicon:hover{
 }
 
 a.removeFriend span.glyphicon{
-  color: #ADD8E6;
+  color: #000080;
 }
 
 a.removeFriend span.glyphicon:hover{
@@ -121,30 +114,6 @@ a.removeFriend span.glyphicon:hover{
 
 .panel-body button {
   align: right;
-}
-
-.footer {
-  color: #777;
-  width: 100%;
-  background-color: #000000;
-  color: white;
-  height:60px;
-  padding: 0;
-  margin-left: 0px;
-}
-
-.footer .glyphicon{
-  color: white;
-}
-
-.footer ul{
-  padding-top: 15px;
-}
-.footer ul li{
-  display: inline;
-  list-style-type: none;
-  margin: 5px;
-  padding: 5px 10px 10px 5px;
 }
 
 ul li{
@@ -157,6 +126,7 @@ a h3{
   color: white;
   font-size: 1.7em;
 }
+
 h4{
   margin-bottom: 2px;
   padding-bottom: 0px;
@@ -167,7 +137,6 @@ h4{
   height: auto;
   padding: 0;
   margin: 0 0 10px 0;
-  /*background: rgba(0,0,0,0.4);*/
   background: white;
   color: black;
   border: 2px solid rgba(0,0,0,0.4);
@@ -187,9 +156,6 @@ h4{
 }
 
 .panel-transparent .panel-body{
-   /* background: rgba(255,255,255,0.7)!important;*/
-   /*background: rgba(0,0,30,0.7)!important;
-   color:white;*/
   background: rgba(255,255,255,0.8)!important;
   color: black;
   text-align:left;
@@ -217,28 +183,23 @@ img.profile{
   padding-right:5px;
 }
 
-#categoryLinks{
-  width:100%;
-  padding: 10px 20px 10px 20px;
-  font-size: 1.5em;
+.dropdown{
+  padding-top: 15px;
+  color: black;
+  font-size: 1.3em;
 }
 
-#sideOptions {
-position: fixed;
-border-radius: 10px 5%;
-top: 100px;
-padding: 5px 10px 21px 10px;
-background: rgba(0,0,30,0.7);
-color: white;
-}
-
-#categoryLinks a{
+.dropdown a{
   color: white;
 }
 
+.dropdown .glyphicon{
+  color: white;
+  padding: 0 0 0 10px;
+}
+
 .dropdown-menu > li{
-  color: black;
-  padding: 5px;
+  padding: 0 5px 0 5px;
 }
 
 .dropdown-menu > li > a{
@@ -247,7 +208,7 @@ color: white;
 }
 
 /* Responsive: Portrait tablets and down */
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 760px) {
   html, body {
   padding-top: 20px;
   height: 100%;
@@ -257,8 +218,8 @@ color: white;
   }
 
   .container {
-      max-width: 100%;
-      height: auto;
+    max-width: 100%;
+    height: auto;
   }
 
   img{
@@ -268,9 +229,9 @@ color: white;
 
   .header,
   .footer {
-      padding-left: 0;
-      padding-right: 0;
-      margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0;
   }
 
   .col-md-12{
@@ -278,9 +239,30 @@ color: white;
   }
 
   .panel-default{
-   width: 100%;
+    width: 100%;
     padding: 0px;
     margin: 0;
+  }
+
+  .dropdown{
+    background-color: #001564;
+    padding: 10px 10px 5px 0;
+    position: relative;
+    float: right;
+    color: white;
+    font-size: 1.3em;
+ /*   display: inline;*/
+  }
+
+
+  .dropdown-menu > li{
+    padding: 0 5px 0 5px;
+    color: white;
+  }
+
+  .dropdown-menu > li > a{
+    color: #FFFFFF!important;
+    font-size: 1.4em;
   }
 
 }

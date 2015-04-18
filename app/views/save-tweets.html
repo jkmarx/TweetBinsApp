@@ -1,9 +1,4 @@
-<!--
-<div class='col-md-3'>
-  <di-categories categories="categoriesCtrl.categories"></di-categories>
-</div> -->
-
-<div class='col-md-9'>
+<div class='col-md-9 col-md-offset-3'>
   <div ng-controller="SaveTweetsCtrl as saveTweetsCtrl">
     <div ng-repeat="saveTweet in saveTweetsCtrl.saveTweets" >
     <div class='panel panel-default panel-transparent'>
@@ -15,7 +10,7 @@
       </div>
       <div class='panel-footer'>
       <div>
-        <strong> {{ saveTweet.userScreenname }} </strong>at <em>{{ saveTweet.created_at }}</em>
+        <strong> <a href="https://twitter.com/{{ saveTweet.userScreenname }} " target="_blank"> {{ saveTweet.userScreenname }}</a> </strong>at <em>{{ saveTweet.created_at }}</em>
         </div>
       </div>
       </div>

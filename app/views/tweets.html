@@ -30,7 +30,7 @@
           <div ng-bind-html="tweet.text"></div>
         </div>
         <div class='panel-footer'>
-          <strong> {{ tweet.userScreenname }} </strong>at <em>{{ tweet.created_at }}</em>
+          <strong> <a href="https://twitter.com/{{ tweet.userScreenname }} " target="_blank"> {{ tweet.userScreenname }}</a> </strong>at <em>{{ tweet.created_at }}</em>
           <form role="form" id="friend-form" name="upsertFriendForm" ng-submit="tweetsCtrl.upsertFriend($scope.tweetsCtrl.friend)">
               <select class="select-category" ng-model="$scope.tweetsCtrl.friend" required>
               <option value=''>Select Bin</option>
