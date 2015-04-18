@@ -11,14 +11,14 @@ html, body {
 }
 
 a{
-  color: #ADD8E6;
+  /*color: #ADD8E6;*/
+  color: #000080;
 }
 
 a:hover{
-  color: #00e500;
+  /*color: #00e500;*/
+  color: #006400;
 }
-
-
 
 div.container-fluid{
   min-width: 100%;
@@ -43,7 +43,7 @@ div.delete-icon{
 button.saveTweet{
   position: relative;
   float: right;
-  border: 3px solid #f5f5f5;
+  border: 2px solid #000080;
   border-radius: 50%;
   background: transparent;
   padding: 0 2px 3px 5px
@@ -74,14 +74,14 @@ button.saveTweet{
 #nav-menu{
   background-color: transparent;
 }
-#nav-menu a{
+/*#nav-menu a{
  /* font-size: 1.5em;*/
-  margin: 10px 15px 0 0;
-  background-color: transparent;
+  /*margin: 10px 15px 0 0;
+  background-color: transparent;*/
  /* background: rgba(0,0,70,0.3);*/
-  color: white;
+  /*color: white;
   border-radius: 10px 5%;
-}
+}*/
 
 .glyphicon {
   /*color: #FFFFFF;*/
@@ -91,7 +91,8 @@ button.saveTweet{
 }
 
 button.saveTweet span.glyphicon{
-  color: #ADD8E6;
+/*  color: #ADD8E6;*/
+  color: #000080;
 }
 
 button.saveTweet span.glyphicon:hover{
@@ -180,27 +181,24 @@ h4{
 .panel-transparent .panel-heading{
   background: rgba(0,0,30,0.7)!important;
   padding: 10px;
+  color: white;
+  font-size:1.2em;
+  text-align: left;
 }
 
 .panel-transparent .panel-body{
    /* background: rgba(255,255,255,0.7)!important;*/
    /*background: rgba(0,0,30,0.7)!important;
    color:white;*/
-   background: rgba(255,255,255,0.8)!important;
+  background: rgba(255,255,255,0.8)!important;
   color: black;
+  text-align:left;
 }
 
 .panel-transparent .panel-footer{
-    background: rgba(255,255,255,0.7)!important;
-    padding: 5px;
-}
-.panel > .panel-heading{
-  /*background: rgba(0,0,0,0.5);*/
-  /*background: rgba(0,0,0,0.1);*/
-  /*background-color: transparent;*/
-  color: white;
-  font-size:1.2em;
-  text-align: left;
+  background: rgba(255,255,255,0.7)!important;
+  padding: 5px;
+  text-align:left;
 }
 
 .panel-heading h3{
@@ -211,16 +209,6 @@ h4{
   display: inline;
   padding-left: 0;
   width: 100%;
-}
-.panel-default > .panel-body{
-  /*background-color: white;*/
-  text-align:left;
-}
-
-.panel-footer{
-  /*background-color: white;*/
-  text-align:left;
-  /*color: #000000;*/
 }
 
 img.profile{
@@ -246,6 +234,16 @@ color: white;
 
 #categoryLinks a{
   color: white;
+}
+
+.dropdown-menu > li{
+  color: black;
+  padding: 5px;
+}
+
+.dropdown-menu > li > a{
+  color: black;
+  font-size: 1.2em;
 }
 
 /* Responsive: Portrait tablets and down */

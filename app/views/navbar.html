@@ -9,14 +9,15 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand" href="#/"><h3>TweetBins</h3></a>
+      <a class="navbar-brand" href="#/"><h3>TweetStreams</h3></a>
     </div>
 
     <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
       <ul class="nav navbar-nav navbar-right" id="nav-menu">
         <li ng-if="!NavbarCtrl.isLoggedin()"><a ng-href="#/loginApp">Login</a></li>
-        <li ng-if="NavbarCtrl.isLoggedin()"><a ng-href="#/dashboard">Dashboard</a></li>
+        <li ng-if="NavbarCtrl.isLoggedin()"> <di-categories categories="categoriesCtrl.categories"></di-categories></li>
+        <li ng-if="NavbarCtrl.isLoggedin()"><a ng-href="#/userAccount">Account</a></li>
         <li ng-if="NavbarCtrl.isLoggedin()"><a href="javascript:void(0)" ng-click="NavbarCtrl.logout()">Logout</a></li>
       </ul>
     </div>

@@ -19,9 +19,8 @@ angular.module('TweetBinsApp').config(['$routeProvider',
       templateUrl: 'views/tweets.html',
       controller: 'TweetsCtrl'
     })
-    .when('/dashboard', {
-      templateUrl: 'views/dashboard.html',
-      controller: 'DashboardCtrl'
+    .when('/main', {
+      templateUrl: 'views/tweets.html',
     })
     .when('/categories/:categoryId', {
       templateUrl: 'views/category.html',
