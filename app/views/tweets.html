@@ -1,4 +1,4 @@
-<div class='col-md-9 col-md-offset-2'>
+<div class='col-md-9 col-md-offset-3 col-sm-9 col-sm-offset-3'>
   <div ng-controller="TweetsCtrl as tweetsCtrl">
     <div ng-repeat="tweet in tweetsCtrl.tweets | tweetsAddLinks" >
       <div class='panel panel-default panel-transparent'>
@@ -31,14 +31,19 @@
         </div>
         <div class='panel-footer'>
           <strong> <a href="https://twitter.com/{{ tweet.userScreenname }} " target="_blank"> {{ tweet.userScreenname }}</a> </strong>at <em>{{ tweet.created_at }}</em>
-          <form role="form" id="friend-form" name="upsertFriendForm" ng-submit="tweetsCtrl.upsertFriend($scope.tweetsCtrl.friend)">
+          <!-- <form role="form" id="friend-form" name="upsertFriendForm" ng-submit="tweetsCtrl.upsertFriend($scope.tweetsCtrl.friend)">
               <select class="select-category" ng-model="$scope.tweetsCtrl.friend" required>
-              <option value=''>Select Bin</option>
+              <option value=''>Add to Stream</option>
               <option ng-repeat="category in tweetsCtrl.categories" value="{{category.id}}, {{tweet.userId}}">{{category.name}}</option>
               </select>
               <button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok"></span></button>
+          </form> -->
+          <form id="friend-form">
+            <select class="select-category" ng-change="tweetsCtrl.upsertFriend($scope.tweetsCtrl.friend)" ng-model="$scope.tweetsCtrl.friend" required>
+              <option value=''>Add to Stream</option>
+              <option ng-repeat="category in tweetsCtrl.categories" value="{{category.id}}, {{tweet.userId}}">{{category.name}}</option>
+            </select>
           </form>
-          <!-- </div> -->
         </div>
       </div>
     </div>

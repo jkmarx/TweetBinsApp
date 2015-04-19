@@ -50,7 +50,6 @@ function SaveTweetsCtrl($scope, SaveTweetsFactory){
   }
 
   function resetForm() {
-    SaveTweetsFactory.setCategory({name: ''});
     vm.serverErrors = false;
   }
 }

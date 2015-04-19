@@ -19,7 +19,7 @@ angular.module('TweetBinsApp').factory('SaveTweetsFactory', ['$http', '$routePar
       }
     };
     var saveTweetId = $routeParams.saveTweetId;
-     return $http.get('http://localhost:3000/save_tweets/' + saveTweetId).then(function(response) {
+     return $http.get(ServerUrl + '/save_tweets/' + saveTweetId, config).then(function(response) {
         //console.log(response.data);
         angular.copy(response.data, saveTweet);
       }, requestFailure);
@@ -50,10 +50,10 @@ angular.module('TweetBinsApp').factory('SaveTweetsFactory', ['$http', '$routePar
       }
     };
     if (saveTweet.id) {
-      return $http.put(ServerUrl + '/save_tweets/' + saveTweet.id, params)
+      return $http.put(ServerUrl + '/save_tweets/' + saveTweet.id, params, config)
       .then(getSaveTweets);
     } else {
-      return $http.post(ServerUrl + '/save_tweets', params)
+      return $http.post(ServerUrl + '/save_tweets', params, config)
       .then(function(response) {
         saveTweets.push(response.data);
         console.log(response.data);
@@ -68,7 +68,7 @@ angular.module('TweetBinsApp').factory('SaveTweetsFactory', ['$http', '$routePar
         'AUTHORIZATION': 'Token token=' + data.token
       }
     };
-    return $http.delete(ServerUrl + '/save_tweets/' + saveTweet.id)
+    return $http.delete(ServerUrl + '/save_tweets/' + saveTweet.id, config)
     .then(function(response) {
       saveTweets.splice(findSaveTweetIndexById(saveTweet.id), 1);
     });

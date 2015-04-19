@@ -36,7 +36,6 @@ angular.module('TweetBinsApp').factory('TweetsFactory', ['$http', '$window', 'Se
       }
     };
     return $http.get(ServerUrl + '/friends', config).then(function(response) {
-      console.log(response.data);
       angular.copy(response.data, friend);
     }, requestFailure);
   };

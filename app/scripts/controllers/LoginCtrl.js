@@ -4,9 +4,9 @@ angular
   .module('TweetBinsApp')
   .controller('LoginCtrl', LoginCtrl);
 
-LoginCtrl.$inject = ['$http', '$location', '$window', '$scope'];
+LoginCtrl.$inject = ['$http', '$location', '$window', '$scope', 'ServerUrl'];
 
-function LoginCtrl($http, $location, $window, $scope){
+function LoginCtrl($http, $location, $window, $scope, ServerUrl){
   var vm = this;
   console.log('in loginctrl');
 
@@ -17,7 +17,7 @@ function LoginCtrl($http, $location, $window, $scope){
 
   function getCallbackToken() {
     console.log('in getCallbackToken');
-    return $http.get('http://localhost:3000/callbacks').then(function(response) {
+    return $http.get(ServerUrl + '/callbacks').then(function(response) {
       console.log(response.data);
       redirectTwitterLogin(response.data);
     }, requestFailure);
@@ -32,7 +32,7 @@ function LoginCtrl($http, $location, $window, $scope){
     console.log(token.token);
     $window.location.href = 'https://api.twitter.com/oauth/authorize?' + token.token;
 
-    return $http.get('http://localhost:3000/callbacks').then(function(response) {
+    return $http.get(ServerUrl + '/callbacks').then(function(response) {
       console.log(response.data);
       redirectTwitterLogin(response.data);
     }, requestFailure);

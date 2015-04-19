@@ -27,7 +27,7 @@ function UserInfoCtrl(AuthFactory, $location, $scope){
     }).error(function(data, status, headers, config){
       console.log(data);
     });
-  }
+  };
 
   vm.deleteUser = function() {
     AuthFactory.deleteUser();

@@ -19,7 +19,7 @@ angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$routePar
       }
     };
     var categoryId = $routeParams.categoryId;
-     return $http.get('http://localhost:3000/categories/' + categoryId).then(function(response) {
+     return $http.get(ServerUrl + '/categories/' + categoryId, config).then(function(response) {
         //console.log(response.data);
         angular.copy(response.data, category);
       }, requestFailure);
@@ -40,20 +40,22 @@ angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$routePar
   };
 
   var upsertCategory = function(category) {
-    var params = {
-      category: category
-    };
-    var data = JSON.parse($window.localStorage.getItem('tb-user'));
-    var config = {
-      headers: {
-        'AUTHORIZATION': 'Token token=' + data.token
-      }
-    };
+      var params = {
+        category: category
+      };
+      var data = JSON.parse($window.localStorage.getItem('tb-user'));
+      var config = {
+        headers: {
+          'AUTHORIZATION': 'Token token=' + data.token
+        }
+      };
     if (category.id) {
-      return $http.put(ServerUrl + '/categories/' + category.id, params)
-      .then(getCategories);
+      return $http.put(ServerUrl + '/categories/' + category.id, params, config)
+      .then(function(response){
+        angular.copy(response.data, category);
+    },requestFailure);
     } else {
-      return $http.post(ServerUrl + '/categories', params)
+      return $http.post(ServerUrl + '/categories', params, config)
       .then(function(response) {
         categories.push(response.data);
       }, requestFailure);
@@ -67,7 +69,7 @@ angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$routePar
         'AUTHORIZATION': 'Token token=' + data.token
       }
     };
-    return $http.delete(ServerUrl + '/categories/' + category.id)
+    return $http.delete(ServerUrl + '/categories/' + category.id, config)
     .then(function(response) {
       categories.splice(findCategoryIndexById(category.id), 1);
     });

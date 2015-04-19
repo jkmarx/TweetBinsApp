@@ -1,16 +1,36 @@
-<!--
-<div class='col-md-3'>
-  <di-categories categories="categoriesCtrl.categories">
-  </di-categories>
-</div>
- -->
-<div class='col-md-9 col-md-offset-3'>
-  <div ng-controller="CategoryCtrl as categoryCtrl">
-    <h2>{{categoryCtrl.category.name}} &nbsp <a class="trashLink" ng-dblclick="categoriesCtrl.deleteCategory(category)"><span class="glyphicon glyphicon-trash"></span></a></h2>
+<div class='col-md-9 col-md-offset-3 col-sm-9 col-sm-offset-3'>
+  <div class="categoryHeader" ng-controller="CategoriesCtrl as categoriesCtrl">
+    <h2 id="categoryTitle">{{categoriesCtrl.category.name}}</h2>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+        <span class="glyphicon glyphicon-edit"></span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation">
+          <form role="form" name="upsertCategory" ng-submit="categoriesCtrl.upsertCategory(categoriesCtrl.category)" novalidate ng-controller="CategoriesCtrl as categoriesCtrl">
 
-    <div ng-controller="TweetsCtrl as tweetsCtrl">
-      <div ng-repeat="tweet in tweetsCtrl.tweets | tweetsFilter:this | tweetsAddLinks" >
-        <div class='panel panel-default panel-transparent'>
+            <h4 ng-if="!categoriesCtrl.category.id">Create Stream Name</h4>
+            <h4 ng-if="categoriesCtrl.category.id">Update Stream Name</h4>
+
+            <div class="form-group">
+              <input type="text" class="form-control" ng-model="categoriesCtrl.category.name" placeholder="Enter Stream Name" style="width: 200px">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-xs" ng-disabled="upsertCategory.$invalid">Submit</button>
+          </form>
+        </li>
+
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" class="trashLink" ng-click="categoriesCtrl.deleteCategory(categoriesCtrl.category)"><span class="glyphicon glyphicon-trash"></span>Delete Stream</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div ng-controller="TweetsCtrl as tweetsCtrl">
+    <div ng-repeat="tweet in tweetsCtrl.tweets | tweetsFilter:this | tweetsAddLinks" >
+      <div class='panel panel-default panel-transparent'>
 
         <div class='panel-body' ng-controller="SaveTweetsCtrl as saveTweetsCtrl">
           <button class="saveTweet" ng-click="saveTweetsCtrl.upsertSaveTweet({{tweet}})"><span class="glyphicon glyphicon-pushpin"></span></button>

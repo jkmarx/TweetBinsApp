@@ -33,10 +33,10 @@ angular.module('TweetBinsApp').factory('FriendFactory', ['$http', '$routeParams'
       }
     };
     if (friend.id) {
-      return $http.put(ServerUrl + '/friends/' + friend.id, params)
+      return $http.put(ServerUrl + '/friends/' + friend.id, params, config)
       .then(getFriend);
     } else {
-      return $http.post(ServerUrl + '/friends', params)
+      return $http.post(ServerUrl + '/friends', params, config)
       .then(function(response) {
         friend.push(response.data);
       }, requestFailure);
@@ -58,7 +58,7 @@ angular.module('TweetBinsApp').factory('FriendFactory', ['$http', '$routeParams'
         'AUTHORIZATION': 'Token token=' + data.token
       }
     };
-    return $http.delete(ServerUrl + '/friends/' + friendId)
+    return $http.delete(ServerUrl + '/friends/' + friendId, config)
     .then(function(response) {
       console.log(response);
     });

@@ -25,7 +25,7 @@ function AuthFactory($http, $window, ServerUrl){
       }
     };
     var userEmail = JSON.parse($window.localStorage.getItem('tb-user'))["email"];
-     return $http.get('http://localhost:3000/users').then(function(response) {
+     return $http.get(ServerUrl + '/users').then(function(response) {
         console.log(response.data);
         angular.copy(response.data, userInfo);
       }, requestFailure);

@@ -24,7 +24,7 @@ angular.module('TweetBinsApp').config(['$routeProvider',
     })
     .when('/categories/:categoryId', {
       templateUrl: 'views/category.html',
-      controller: 'CategoryCtrl'
+      controller: 'CategoriesCtrl'
     })
     .when('/saveTweets', {
       templateUrl: 'views/save-tweets.html',
