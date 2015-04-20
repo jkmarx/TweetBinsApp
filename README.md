@@ -1,12 +1,13 @@
 # tweet-bins-app
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+* [TweetStreams App Code](https://github.com/jkmarx/TweetBinsApp)
+* [TweetStreams Api Code](https://github.com/jkmarx/TweetBinsAPI)
 
-## Build & development
+The TweetStreams project was created to meet the requirements for Project 3 of Boston-General Assembly's Web Development Immersive in April 2015. It uses a Rails API and an Angular front-end.
 
-Run `grunt` for building and `grunt serve` for preview.
+##Features
+  * This app uses OAuth 1.0 to access a user's tweets and friends through the TweetStreams API which interfaces with the Twitter API.
 
-## Testing
+  * The user can sort friends into various streams. The user can create, edit, and delete a stream.
 
-Running `grunt test` will run the unit tests with karma.
+  * The user can also save tweets in a list for future reference.
