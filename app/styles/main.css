@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   width: 100%;
   font-size: 16px;
-  background-image: url("https://github.com/jkmarx/TweetBinsApp/blob/gh-pages/images/sky-and-flowers.jpg");
+  background-image: url("https://raw.githubusercontent.com/jkmarx/TweetBinsApp/gh-pages/images/sky-and-flowers.jpg");
   background-attachment: fixed;
 }
 
@@ -57,7 +57,7 @@ button.saveTweet{
 
 .navbar {
   height:80px;
-  background-image: url("https://github.com/jkmarx/TweetBinsApp/blob/gh-pages/images/sky-and-flowers_header.jpg");
+  background-image: url("https://raw.githubusercontent.com/jkmarx/TweetBinsApp/gh-pages/images/sky-and-flowers_header.jpg");
   background-size: 100% auto;
   color: white;
   font-size: 1.5em;
