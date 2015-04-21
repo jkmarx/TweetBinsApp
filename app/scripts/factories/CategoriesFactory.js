@@ -5,8 +5,6 @@ angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$routePar
   var categories = [];
   var category = {};
 
-  console.log('in categoriesFactory');
-
   var setCategory = function(newCategory) {
     angular.copy(newCategory, category);
   };
@@ -34,7 +32,7 @@ angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$routePar
       }
     };
     return $http.get(ServerUrl + '/categories', config).then(function(response) {
-      console.log(response.data);
+      // console.log(response.data);
       angular.copy(response.data, categories);
     }, requestFailure);
   };
@@ -84,7 +82,7 @@ angular.module('TweetBinsApp').factory('CategoriesFactory', ['$http', '$routePar
   }
 
   function requestFailure(response){
-    console.log('in requestFailure');
+    console.log('in CategoriesFactory requestFailure');
     console.log(response);
   }
 

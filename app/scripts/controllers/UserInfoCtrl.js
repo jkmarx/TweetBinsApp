@@ -15,7 +15,7 @@ function UserInfoCtrl(AuthFactory, $location, $scope){
     AuthFactory.getUserInfo().then(function(response){
     vm.userInfo = AuthFactory.userInfo;
     });
-  };
+  }
 
   var logout = function(){
     AuthFactory.logout();
@@ -25,7 +25,7 @@ function UserInfoCtrl(AuthFactory, $location, $scope){
     AuthFactory.upsertUser(userInfo).success(function(response){
       $location.path('/dashboard');
     }).error(function(data, status, headers, config){
-      console.log(data);
+      // console.log(data);
     });
   };
 

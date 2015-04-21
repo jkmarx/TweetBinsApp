@@ -9,9 +9,8 @@ function FriendCtrl( FriendFactory,CategoriesFactory, $route){
   vm.categories = CategoriesFactory.categories;
 
   vm.upsertFriend = function(friend) {
-    var friendParam = {};
-    friendParam.category_id = friend[0];
-    friendParam.twitterId = friend[1];
+    var friendParam = vm.setFriendParam(friend);
+
     FriendFactory.upsertFriend(friendParam)
     .then(function() {
       resetForm();
@@ -19,6 +18,13 @@ function FriendCtrl( FriendFactory,CategoriesFactory, $route){
       vm.serverErrors = true;
       vm.serverErrorMsg = handleErrors(response.data);
     });
+  };
+
+  vm.setFriendParam = function(friend){
+    var friendParam = {};
+    friendParam.category_id = friend[0];
+    friendParam.twitterId = friend[1];
+    return friendParam;
   };
 
   vm.editFriend = function(friend) {

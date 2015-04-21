@@ -1,14 +1,12 @@
+'use strict';
+
+// Filters out any friends who does not belong in a category
 angular.module('TweetBinsApp').filter('tweetsFilter',[function(param, scope){
 return function(param, scope){
   var filteredTweets = [];
   var categoryFriendsId = [];
 
-  if(scope.category){
-    var categoryFriends = scope.category.friends;
-    for (var j = 0; j < categoryFriends.length; j++){
-      categoryFriendsId.push(categoryFriends[j].twitterId);
-    }
-  }
+  getCategoryFriendsList(scope, categoryFriendsId);
 
   if(param){
     for(var i = 0; i < param.length; i++){
@@ -22,3 +20,13 @@ return function(param, scope){
   return filteredTweets;
 };
 }]);
+
+
+var getCategoryFriendsList = function(scope, categoryFriendsId){
+  if(scope.category.friends){
+    var categoryFriends = scope.category.friends;
+    for (var j = 0; j < categoryFriends.length; j++){
+      categoryFriendsId.push(categoryFriends[j].twitterId);
+    }
+  }
+};

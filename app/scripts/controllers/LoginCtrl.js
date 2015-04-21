@@ -8,7 +8,6 @@ LoginCtrl.$inject = ['$http', '$location', '$window', '$scope', 'ServerUrl'];
 
 function LoginCtrl($http, $location, $window, $scope, ServerUrl){
   var vm = this;
-  console.log('in loginctrl');
 
   vm.redirectToTwitter = function(){
     console.log('in redirectToTwitter');
@@ -24,7 +23,7 @@ function LoginCtrl($http, $location, $window, $scope, ServerUrl){
   }
 
   function requestFailure(response){
-    console.log('in requestFailure');
+    console.log('in LoginCtrl requestFailure');
     console.log(response);
   }
 

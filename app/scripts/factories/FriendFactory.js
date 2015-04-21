@@ -3,8 +3,6 @@
 angular.module('TweetBinsApp').factory('FriendFactory', ['$http', '$routeParams', '$window', 'ServerUrl', function($http,$routeParams, $window, ServerUrl){
   var friend = {};
 
-  console.log('in friendFactory');
-
   var setFriend = function(newFriend) {
     angular.copy(newFriend, friend);
   };
@@ -17,7 +15,7 @@ angular.module('TweetBinsApp').factory('FriendFactory', ['$http', '$routeParams'
       }
     };
     return $http.get(ServerUrl + '/friends', config).then(function(response) {
-      console.log(response.data);
+      // console.log(response.data);
       angular.copy(response.data, friend);
     }, requestFailure);
   };
@@ -60,12 +58,12 @@ angular.module('TweetBinsApp').factory('FriendFactory', ['$http', '$routeParams'
     };
     return $http.delete(ServerUrl + '/friends/' + friendId, config)
     .then(function(response) {
-      console.log(response);
+      // console.log(response);
     });
   };
 
   function requestFailure(response){
-    console.log('in requestFailure');
+    console.log('in FriendFactory requestFailure');
     console.log(response);
   }
 

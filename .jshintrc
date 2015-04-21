@@ -33,6 +33,9 @@
     "CategoryCtrl":false,
     "tweetsFilter":false,
     "FriendCtrl":false,
-    "diTweets":false
+    "diTweets":false,
+    "getCategoryFriends":false,
+    "UserInfoCtrl":false,
+    "SaveTweetsCtrl":false
   }
 }

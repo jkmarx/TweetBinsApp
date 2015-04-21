@@ -10,8 +10,6 @@ function AuthFactory($http, $window, ServerUrl){
   var userInfo = {};
 
   function login(credentials){
-    console.log(credentials);
-    console.log('In authfactory login');
     return $http.post(ServerUrl + '/login', credentials).success(function(response){
       _storeSession(response);
     });
@@ -73,7 +71,7 @@ function AuthFactory($http, $window, ServerUrl){
       _storeSession(response);
 
     }).error(function(data, status, headers, config){
-      console.log(data);
+      // console.log(data);
     });
   };
 
@@ -85,12 +83,12 @@ function AuthFactory($http, $window, ServerUrl){
       _storeSession(response);
 
     }).error(function(data, status, headers, config){
-      console.log(data);
+      // console.log(data);
     });
   };
 
     function requestFailure(response){
-    console.log('in requestFailure');
+    console.log('in AuthFactory requestFailure');
     console.log(response);
   }
 
@@ -103,7 +101,7 @@ function AuthFactory($http, $window, ServerUrl){
     };
     return $http.delete(ServerUrl + '/users' )
     .then(function(response) {
-      console.log(response);
+      // console.log(response);
     });
   };
 

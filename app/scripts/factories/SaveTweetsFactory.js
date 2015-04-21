@@ -5,8 +5,6 @@ angular.module('TweetBinsApp').factory('SaveTweetsFactory', ['$http', '$routePar
   var saveTweets = [];
   var saveTweet = {};
 
-  console.log('in saveTweetsFactory');
-
   var setSaveTweet = function(newSaveTweet) {
     angular.copy(newSaveTweet, saveTweet);
   };
@@ -56,7 +54,7 @@ angular.module('TweetBinsApp').factory('SaveTweetsFactory', ['$http', '$routePar
       return $http.post(ServerUrl + '/save_tweets', params, config)
       .then(function(response) {
         saveTweets.push(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       }, requestFailure);
     }
   };
@@ -83,7 +81,7 @@ angular.module('TweetBinsApp').factory('SaveTweetsFactory', ['$http', '$routePar
   }
 
   function requestFailure(response){
-    console.log('in requestFailure');
+    console.log('in saveTweetsFactory requestFailure');
     console.log(response);
   }
 

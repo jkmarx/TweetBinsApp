@@ -4,7 +4,6 @@ angular.module('TweetBinsApp').factory('TweetsFactory', ['$http', '$window', 'Se
 
   var friend = {};
   var tweets = [];
-  console.log('in tweetsFactory');
 
   var getTweets = function() {
     var data = JSON.parse($window.localStorage.getItem('tb-user'));
@@ -20,7 +19,7 @@ angular.module('TweetBinsApp').factory('TweetsFactory', ['$http', '$window', 'Se
   };
 
   function requestFailure(response){
-    // console.log('in requestFailure');
+    console.log('in tweetsFactory requestFailure');
     console.log(response);
   }
 

@@ -8,14 +8,14 @@ function TweetsCtrl( $scope, TweetsFactory, CategoriesFactory){
   var vm = this;
   vm.friend = TweetsFactory.friend;
   vm.categories = CategoriesFactory.categories;
-  console.log('in tweetsCtrl now!');
+
   TweetsFactory.getTweets().then(function(response){
     vm.tweets = TweetsFactory.tweets;
   });
 
   vm.upsertFriend = function(friend) {
     var friendParam = {};
-    friend = JSON.parse("[" + friend + "]");
+    friend = JSON.parse('[' + friend + ']');
     friendParam.category_id = friend[0];
     friendParam.twitterId = friend[1];
     TweetsFactory.upsertFriend(friendParam).then(function() {
