@@ -5,7 +5,7 @@
     <div class='panel panel-default panel-transparent'>
 
       <div class='panel-body'>
-        <a class="trashLink" ng-dblclick="saveTweetsCtrl.deleteSaveTweet(saveTweet)"><span class="glyphicon glyphicon-trash"></span></a>
+        <a class="trashLink" ng-dblclick="saveTweetsCtrl.deleteSaveTweet(saveTweet)" title="Dblclick, delete tweet" data-toggle="tooltip" onmouseenter="$(this).tooltip('show')"><span class="glyphicon glyphicon-trash"></span></a>
         <img src={{saveTweet.profile_image_url}} class="profile">
         <div ng-bind-html="saveTweet.text"> </div>
       </div>

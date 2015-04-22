@@ -6,7 +6,7 @@
 
         <div class='panel-body' ng-controller="SaveTweetsCtrl as saveTweetsCtrl">
 
-          <button class="saveTweet" ng-click="saveTweetsCtrl.upsertSaveTweet({{tweet}})"><span class="glyphicon glyphicon-pushpin"></span></button>
+          <button class="saveTweet"  title="Save Tweet" data-toggle="tooltip" onmouseenter="$(this).tooltip('show')" ng-click="saveTweetsCtrl.upsertSaveTweet({{tweet}})"><span class="glyphicon glyphicon-pushpin"></span></button>
           <img src={{tweet.profile_image_url}} class="profile">
           <div ng-bind-html="tweet.text"></div>
         </div>

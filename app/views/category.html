@@ -33,13 +33,13 @@
       <div class='panel panel-default panel-transparent'>
 
         <div class='panel-body' ng-controller="SaveTweetsCtrl as saveTweetsCtrl">
-          <button class="saveTweet" ng-click="saveTweetsCtrl.upsertSaveTweet({{tweet}})"><span class="glyphicon glyphicon-pushpin"></span></button>
+          <button class="saveTweet" title="Save Tweet" data-toggle="tooltip" onmouseenter="$(this).tooltip('show')" ng-click="saveTweetsCtrl.upsertSaveTweet({{tweet}})"><span class="glyphicon glyphicon-pushpin"></span></button>
           <img src={{tweet.profile_image_url}} class="profile">
           <div ng-bind-html="tweet.text"></div>
         </div>
 
         <div class='panel-footer' ng-controller="FriendCtrl as friendCtrl">
-          <strong><a class="removeFriend" ng-dblclick="friendCtrl.deleteFriend(tweet.userId)"><span class="glyphicon glyphicon-remove"></span></a> <a href="https://twitter.com/{{ tweet.userScreenname }} " target="_blank"> {{ tweet.userScreenname }}</a> </strong>at <em>{{ tweet.created_at }}</em>
+          <strong><a class="removeFriend" ng-dblclick="friendCtrl.deleteFriend(tweet.userId)" title="Dblclick, Remove Friend from Stream" data-toggle="tooltip" onmouseenter="$(this).tooltip('show')"><span class="glyphicon glyphicon-remove"></span></a> <a href="https://twitter.com/{{ tweet.userScreenname }} " target="_blank"> {{ tweet.userScreenname }}</a> </strong>at <em>{{ tweet.created_at }}</em>
         </div>
       </div>
     </div>
